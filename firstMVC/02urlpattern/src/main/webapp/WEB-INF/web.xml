@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <!--解决静态资源404的问题，将这些静态资源的请求交给DefaultServlet-->
-    <servlet-mapping>
+    <!-- 方式一： 解决静态资源404的问题，将这些静态资源的请求交给DefaultServlet-->
+   <!-- <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.jpg</url-pattern>
     </servlet-mapping>
@@ -17,6 +17,11 @@
         <servlet-name>default</servlet-name>
         <url-pattern>*.css</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+    </servlet-mapping>-->
+
     <!-- 注册spring MVC中央控制器 -->
     <servlet>
         <servlet-name>springMVC</servlet-name>

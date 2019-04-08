@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="_01firstSpringMVC" />
         <module name="_02urlpattern" />
+        <module name="02urlpattern" />
+        <module name="01-firstSpringMVC" />
       </profile>
     </annotationProcessing>
   </component>
