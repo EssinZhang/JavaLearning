@@ -16,5 +16,5 @@
             <property name="prefix" value="/WEB-INF/jsp/" />
             <property name="suffix" value=".jsp" />
         </bean>
-        <bean id="/hello.do" class="cn.zyx.controller.HelloSpringMVC"/>
+        <bean id="/hello.do" class="cn.zyx.HelloSpringMVC"/>
 </beans>
