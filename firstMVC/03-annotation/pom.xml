@@ -9,10 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>01-firstSpringMVC</artifactId>
+    <artifactId>03-annotation</artifactId>
     <packaging>war</packaging>
 
-    <name>01-firstSpringMVC Maven Webapp</name>
+    <name>03-annotation Maven Webapp</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -32,7 +32,7 @@
     </dependencies>
 
     <build>
-        <finalName>01-firstSpringMVC</finalName>
+        <finalName>03-annotation</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>

@@ -11,6 +11,10 @@
     <module>01-firstSpringMVC</module>
     <module>02urlpattern</module>
       <module>03-annotation</module>
+    <module>03-annotation</module>
+    <module>03-annotation</module>
+    <module>03-annotation</module>
+    <module>03-annotation</module>
   </modules>
   <packaging>pom</packaging>
 

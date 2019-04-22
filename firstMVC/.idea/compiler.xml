@@ -8,10 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="_01firstSpringMVC" />
         <module name="_02urlpattern" />
-        <module name="01-firstSpringMVC" />
-        <module name="_03annotation" />
         <module name="02urlpattern" />
+        <module name="_03annotation" />
+        <module name="01-firstSpringMVC" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="8">
+      <module name="_03annotation" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
