@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="_01firstSpringMVC" />
-        <module name="_02urlpattern" />
-        <module name="02urlpattern" />
         <module name="_03annotation" />
         <module name="01-firstSpringMVC" />
+        <module name="_02urlpattern" />
+        <module name="_04requestParams" />
+        <module name="02urlpattern" />
+        <module name="_01firstSpringMVC" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">

@@ -15,6 +15,7 @@
     <module>03-annotation</module>
     <module>03-annotation</module>
     <module>03-annotation</module>
+      <module>04-requestParams</module>
   </modules>
   <packaging>pom</packaging>
 
