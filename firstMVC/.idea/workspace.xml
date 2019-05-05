@@ -6,11 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d5d2cf7-020e-4fff-ac7e-c31ae5130516" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-requestParams/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/04-requestParams/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0d5d2cf7-020e-4fff-ac7e-c31ae5130516" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/01-firstSpringMVC/target/" />
@@ -87,7 +83,7 @@
         <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/webapp/WEB-INF/web.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="133">
-              <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+              <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -187,9 +183,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="496" />
-    <option name="y" value="56" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="495" />
+    <option name="y" value="55" />
     <option name="width" value="1180" />
     <option name="height" value="835" />
   </component>
@@ -211,70 +207,6 @@
               <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
               <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
               <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="params" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
@@ -509,7 +441,7 @@
       <workItem from="1556000046602" duration="1242000" />
       <workItem from="1556023322837" duration="3736000" />
       <workItem from="1556283575487" duration="4256000" />
-      <workItem from="1556541686503" duration="4535000" />
+      <workItem from="1556541686503" duration="5388000" />
     </task>
     <task id="LOCAL-00001" summary="git add *">
       <created>1554637051196</created>
@@ -571,7 +503,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39171000" />
+    <option name="totallyTimeSpent" value="40024000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -584,7 +516,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32171583" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -594,13 +525,13 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49798927" visible="true" weight="0.32719547" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49798927" weight="0.32719547" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.24929178" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Spring" order="9" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3286119" />
@@ -955,7 +886,7 @@
     <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
         </state>
       </provider>
     </entry>
