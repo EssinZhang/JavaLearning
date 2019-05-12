@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--注解驱动-->
+    <mvc:annotation-driven />
+    <!--注册组件扫描器-->
+    <context:component-scan base-package="cn.zyx.*"/>
+
+    <!--注册一个MultipartResolver，由dispatcherServlet调用-->
+    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        &lt;!&ndash;设置字符编码防止文件名乱码&ndash;&gt;
+        <property name="defaultEncoding" value="utf-8"/>
+        &lt;!&ndash;设置上传文件的总大小，单位是字节b&ndash;&gt;
+        <property name="maxUploadSize" value="1048576"/>
+        &lt;!&ndash;设置单个上传文件的大小，单位是字节b&ndash;&gt;
+        <property name="maxUploadSizePerFile" value="1048576"/>
+        &lt;!&ndash;设置内存缓冲区的大小，当超过该值的时候会写入到临时目录&ndash;&gt;
+        <property name="maxInMemorySize" value="1048576"/>
+        &lt;!&ndash;默认是false，如果设置为true的话，不会将文件路径去除，在IE浏览器下上传时会将路径名也作为文件名上传：D:\image\monkey.png&ndash;&gt;
+        <property name="preserveFilename" value="false"/>
+        &lt;!&ndash;是否使用懒加载，默认是false&ndash;&gt;
+        <property name="resolveLazily" value="true"/>
+    </bean>-->
+
+
+    <!--两个*表示该目录下的文件及文件夹内容-->
+    <mvc:resources mapping="/images/**" location="/images/"/>
+    <mvc:resources mapping="/css/**" location="/css/"/>
+
+    <!--添加外部视图解析器-->
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+        </bean>
+    <bean id="baidu" class="org.springframework.web.servlet.view.RedirectView">
+            <property name="url" value="http://www.baidu.com/"/>
+        </bean>
+    <!-- 内部视图解释类 -->
+    <bean
+                class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+            <property name="prefix" value="/jsp/" />
+            <property name="suffix" value=".jsp" />
+        </bean>
+</beans>
