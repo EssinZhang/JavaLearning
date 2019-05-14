@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>monkey1024</title>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container theme-showcase" role="main">
+	<div id="msg">
+
+	</div>
+    <div class="page-header">
+        <input type="text" id="id" name="id" placeholder="请输入id">
+        <button id="query" type="button" class="btn btn-sm btn-primary">查询</button>
+        <button id="add" type="button" class="btn btn-sm btn-success">添加</button>
+    </div>
+    <div class="row">
+        <div class="">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>姓名</th>
+                    <th>手机</th>
+                    <th>生日</th>
+                    <th>地址</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script>
+    $(function () {
+        findAll();
+
+        //添加按钮绑定点击事件
+        $("#add").click(function () {
+            $(location).attr('href','/13/html/user_add.html');
+        });
+
+        //将点击事件委托给tbody
+        $("#tbody").on("click",".btn-warning",function () {
+           var userid = this.parentNode.parentNode.firstChild.innerHTML;
+           $(location).attr("href","/13/html/user_update.html?id=" + userid);
+        });
+
+        //将点击事件委托给tbody
+        $("#tbody").on("click",".btn-info",function () {
+            var flag = confirm("是否删除？");
+            if (flag){
+                deleteUser(this);
+            }
+        });
+
+        $("#query").click(function () {
+            var id = $("#id").val();
+            if (id != "") {
+                findUserById(id);
+            }else {
+                findAll();
+            }
+        });
+    });
+
+    function findUserById(id) {
+        $.ajax({
+           url:"/13/users/"+id,
+           type:"get",
+           dataType:"json",
+           success:function (result) {
+               var dataInfo = "";
+               dataInfo +=
+                   "<tr>" +
+                   "<td>" + id + "</td>" +
+                   "<td>" + result.name + "</td>" +
+                   "<td>" + result.tel + "</td>" +
+                   "<td>" + result.birth + "</td>" +
+                   "<td>" + result.addr + "</td>" +
+                   "<td>" +
+                   "<button type='button' class='btn btn-sm btn-info' >删除</button>" +
+                   "<button type='button' class='btn btn-sm btn-warning' >修改</button>" +
+                   "</td>" +
+                   "</tr>";
+               $("#tbody").html(dataInfo);
+           }
+        });
+    }
+
+    function deleteUser(obj) {
+        var userId = obj.parentNode.parentNode.firstChild.innerHTML;
+
+        $.ajax({
+           url: "/13/users/" + userId,
+           type: "delete",
+           dataType: "json",
+           success:function (result) {
+               if (result == "Success to delete"){
+                   findAll();
+
+                   var msg = "<div class=\"alert alert-info\" role=\"alert\">删除成功</div>";
+                   $("#msg").html(msg);
+                   //2秒后将提示信息消除
+                   setTimeout(function () {
+                       $("#msg").empty();
+                   },2000);
+               } else {
+                   var msg = "<div class=\"alert alert-warning\" role=\"alert\">删除失败</div>";
+                   $("#msg").html(msg);
+                   //2秒后将提示信息消除
+                   setTimeout(function () {
+                       $("#msg").empty();
+                   },2000);
+               }
+           }
+        });
+    }
+
+    function findAll() {
+        $.ajax({
+           url:"/13/users",
+           type:"get",
+            dataType:"json",
+            success:function (result) {
+
+               var dataInfo = "";
+                $.each(result,function (index,value) {
+                    dataInfo +=
+                        "<tr>" +
+                        "<td>" + index + "</td>" +
+                        "<td>" + value.name + "</td>" +
+                        "<td>" + value.tel + "</td>" +
+                        "<td>" + value.birth + "</td>" +
+                        "<td>" + value.addr + "</td>" +
+                        "<td>" +
+                        "<button type='button' class='btn btn-sm btn-info' >删除</button>" +
+                        "<button type='button' class='btn btn-sm btn-warning' >修改</button>" +
+                        "</td>" +
+                        "</tr>";
+                });
+                $("#tbody").html(dataInfo);
+            }
+        });
+    }
+</script>
+</body>
+</html>

@@ -20,6 +20,11 @@
     <module>06-redirect</module>
       <module>07-exception</module>
       <module>08-dataConverter</module>
+    <module>09-validation</module>
+      <module>10-upload</module>
+      <module>11-interceptor</module>
+      <module>12-crud</module>
+    <module>13-restful</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -57,6 +62,14 @@
       <version>1.2.47</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/taglibs/standard -->
+    <dependency>
+      <groupId>taglibs</groupId>
+      <artifactId>standard</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+
+
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
@@ -72,11 +85,37 @@
       <artifactId>jackson-annotations</artifactId>
       <version>2.9.4</version>
     </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.module</groupId>
+      <artifactId>jackson-module-parameter-names</artifactId>
+      <version>2.9.4</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jdk8</artifactId>
+      <version>2.9.4</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+      <version>2.9.4</version>
+    </dependency>
 
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-validator</artifactId>
       <version>6.0.9.Final</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.6</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3.3</version>
     </dependency>
 
   </dependencies>
