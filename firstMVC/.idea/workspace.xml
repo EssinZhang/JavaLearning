@@ -2,20 +2,34 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="_04requestParams:war exploded" />
+      <artifact name="_13restful:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d5d2cf7-020e-4fff-ac7e-c31ae5130516" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/bean/Region.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/bean/UserInformation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/ParamsController02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/PathController01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/UserInformationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/04-requestParams/src/main/webapp/jsp/userInfo.jsp" afterDir="false" />
+    <list default="true" id="3f0dafd8-d4c8-417d-846b-07e995ff5971" name="Default Changelist" comment="依旧用模拟的方式写一个rest风格的增删改查，接下来就该进入mybatis了">
+      <change afterPath="$PROJECT_DIR$/06-redirect/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/07-exception/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/08-dataConverter/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/09-validation/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/10-upload/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/11-interceptor/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/12-crud/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/13-restful/_13restful.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/13-restful/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/13-restful/src/main/java/cn/zyx/bean/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/13-restful/src/main/java/cn/zyx/controller/UserRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/13-restful/src/main/java/cn/zyx/util/DataUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/13-restful/src/main/resources/springmvc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/13-restful/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/13-restful/src/main/webapp/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/13-restful/src/main/webapp/html/user_add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/13-restful/src/main/webapp/html/user_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/13-restful/src/main/webapp/html/user_update.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/13-restful/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/13-restful/src/main/webapp/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/13-restful/src/main/webapp/js/jquery-3.3.1.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/ParamsController01.java" beforeDir="false" afterPath="$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/ParamsController01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/04-requestParams/src/main/webapp/jsp/regist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/04-requestParams/src/main/webapp/jsp/regist.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -23,11 +37,23 @@
     <ignored path="$PROJECT_DIR$/02urlpattern/target/" />
     <ignored path="$PROJECT_DIR$/03-annotation/target/" />
     <ignored path="$PROJECT_DIR$/04-requestParams/target/" />
+    <ignored path="$PROJECT_DIR$/05-returnValue/target/" />
+    <ignored path="$PROJECT_DIR$/06-redirect/target/" />
+    <ignored path="$PROJECT_DIR$/07-exception/target/" />
+    <ignored path="$PROJECT_DIR$/08-dataConverter/target/" />
+    <ignored path="$PROJECT_DIR$/09-validation/target/" />
+    <ignored path="$PROJECT_DIR$/10-upload/target/" />
+    <ignored path="$PROJECT_DIR$/11-interceptor/target/" />
+    <ignored path="$PROJECT_DIR$/12-crud/target/" />
+    <ignored path="$PROJECT_DIR$/13-restful/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -43,128 +69,81 @@
     <expand />
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="firstMVC" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/webapp/jsp/regist.jsp">
+        <entry file="file://$PROJECT_DIR$/13-restful/src/main/resources/springmvc.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/webapp/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/ParamsController01.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/ParamsController02.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/bean/UserInformation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-              <folding>
-                <element signature="e#166#167#0" expanded="true" />
-                <element signature="e#195#196#0" expanded="true" />
-                <element signature="e#239#240#0" expanded="true" />
-                <element signature="e#275#276#0" expanded="true" />
-                <element signature="e#146#147#0" expanded="true" />
-                <element signature="e#177#178#0" expanded="true" />
-                <element signature="e#225#226#0" expanded="true" />
-                <element signature="e#265#266#0" expanded="true" />
-                <element signature="e#296#297#0" expanded="true" />
-                <element signature="e#326#327#0" expanded="true" />
-                <element signature="e#369#370#0" expanded="true" />
-                <element signature="e#407#408#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/UserInformationController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/bean/Region.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-              <folding>
-                <element signature="e#183#184#0" expanded="true" />
-                <element signature="e#229#230#0" expanded="true" />
-                <element signature="e#267#268#0" expanded="true" />
-                <element signature="e#302#303#0" expanded="true" />
-                <element signature="e#333#334#0" expanded="true" />
-                <element signature="e#381#382#0" expanded="true" />
-                <element signature="e#421#422#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/webapp/jsp/userInfo.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+            <state relative-caret-position="437">
+              <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/PathController01.java">
+        <entry file="file://$PROJECT_DIR$/13-restful/src/main/java/cn/zyx/util/DataUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="113" selection-start-line="16" selection-start-column="113" selection-end-line="16" selection-end-column="113" />
+            <state relative-caret-position="141">
+              <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1558">
+              <caret line="82" column="16" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/13-restful/src/main/java/cn/zyx/controller/UserRestController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1558">
+              <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="51" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/13-restful/src/main/webapp/html/user_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="82" column="15" selection-start-line="82" selection-start-column="15" selection-end-line="82" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/13-restful/src/main/webapp/html/user_update.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1368">
+              <caret line="72" column="39" selection-start-line="72" selection-start-column="39" selection-end-line="72" selection-end-column="39" />
+              <folding>
+                <element signature="n#style#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/13-restful/src/main/webapp/html/user_add.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1292">
+              <caret line="68" column="32" selection-start-line="65" selection-start-column="24" selection-end-line="68" selection-end-column="32" />
+              <folding>
+                <element signature="n#style#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -183,57 +162,70 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/01-firstSpringMVC/src/main/webapp/WEB-INF/jsp/first.jsp" />
-        <option value="$PROJECT_DIR$/01-firstSpringMVC/src/main/java/cn/zyx/controller/HelloSpringMVC.java" />
-        <option value="$PROJECT_DIR$/02urlpattern/src/main/java/controller/HelloSpringMVC.java" />
-        <option value="$PROJECT_DIR$/02urlpattern/src/main/java/urlpatternController/controller/HelloSpringMVC.java" />
-        <option value="$PROJECT_DIR$/01-firstSpringMVC/src/main/resources/springmvc.xml" />
-        <option value="$PROJECT_DIR$/02urlpattern/src/main/webapp/WEB-INF/jsp/first.jsp" />
-        <option value="$PROJECT_DIR$/02urlpattern/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/02urlpattern/src/main/webapp/index.jsp" />
-        <option value="$PROJECT_DIR$/01-firstSpringMVC/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/03-annotation/src/main/java/controller/HelloSpringMVC.java" />
-        <option value="$PROJECT_DIR$/03-annotation/src/main/java/cn/zyx/anno/TestController.java" />
-        <option value="$PROJECT_DIR$/03-annotation/src/main/java/cn/zyx/anno/TestController01.java" />
-        <option value="$PROJECT_DIR$/03-annotation/src/main/java/HelloSpringMVC.java" />
-        <option value="$PROJECT_DIR$/02urlpattern/src/main/resources/springmvc.xml" />
-        <option value="$PROJECT_DIR$/03-annotation/src/main/java/cn/zyx/annot/HelloSpringMVC.java" />
+        <option value="$PROJECT_DIR$/08-dataConverter/src/main/webapp/jsp/user.jsp" />
+        <option value="$PROJECT_DIR$/08-dataConverter/src/main/java/cn/zyx/converter/DateConverter.java" />
+        <option value="$PROJECT_DIR$/08-dataConverter/src/main/resources/springmvc.xml" />
+        <option value="$PROJECT_DIR$/08-dataConverter/src/main/java/cn/zyx/bean/User.java" />
+        <option value="$PROJECT_DIR$/08-dataConverter/src/main/java/cn/zyx/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/09-validation/pom.xml" />
+        <option value="$PROJECT_DIR$/09-validation/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/09-validation/src/main/java/cn/zyx/bean/User.java" />
+        <option value="$PROJECT_DIR$/09-validation/src/main/resources/springmvc.xml" />
+        <option value="$PROJECT_DIR$/09-validation/src/main/webapp/jsp/success.jsp" />
+        <option value="$PROJECT_DIR$/09-validation/src/main/webapp/jsp/register.jsp" />
+        <option value="$PROJECT_DIR$/09-validation/src/main/java/cn/zyx/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/10-upload/pom.xml" />
+        <option value="$PROJECT_DIR$/10-upload/src/main/webapp/jsp/uploadFail.jsp" />
+        <option value="$PROJECT_DIR$/10-upload/src/main/webapp/jsp/uploadSuccess.jsp" />
+        <option value="$PROJECT_DIR$/10-upload/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/10-upload/src/main/resources/springmvc.xml" />
+        <option value="$PROJECT_DIR$/10-upload/src/main/webapp/jsp/upload.jsp" />
+        <option value="$PROJECT_DIR$/10-upload/src/main/java/cn/zyx/controller/UploadController.java" />
+        <option value="$PROJECT_DIR$/11-interceptor/pom.xml" />
+        <option value="$PROJECT_DIR$/11-interceptor/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/11-interceptor/src/main/java/cn/zyx/interceptor/MyInterceptor.java" />
+        <option value="$PROJECT_DIR$/11-interceptor/src/main/java/cn/zyx/controller/InterceptorController.java" />
+        <option value="$PROJECT_DIR$/11-interceptor/src/main/webapp/jsp/result.jsp" />
+        <option value="$PROJECT_DIR$/11-interceptor/src/main/java/cn/zyx/filter/MyFilter.java" />
+        <option value="$PROJECT_DIR$/11-interceptor/src/main/webapp/jsp/loginFail.jsp" />
+        <option value="$PROJECT_DIR$/11-interceptor/src/main/java/cn/zyx/interceptor/PermissionInterceptor.java" />
+        <option value="$PROJECT_DIR$/11-interceptor/src/main/resources/springmvc.xml" />
+        <option value="$PROJECT_DIR$/11-interceptor/src/main/webapp/jsp/loginSuccess.jsp" />
+        <option value="$PROJECT_DIR$/11-interceptor/src/main/webapp/jsp/login.jsp" />
+        <option value="$PROJECT_DIR$/11-interceptor/src/main/java/cn/zyx/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/12-crud/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/12-crud/src/main/java/cn/zyx/bean.java" />
+        <option value="$PROJECT_DIR$/12-crud/src/main/java/cn/zyx/bean/User.java" />
+        <option value="$PROJECT_DIR$/12-crud/src/main/java/cn/zyx/util/DataUtil.java" />
+        <option value="$PROJECT_DIR$/12-crud/src/main/resources/springmvc.xml" />
+        <option value="$PROJECT_DIR$/12-crud/src/main/webapp/jsp/user_list.jsp" />
+        <option value="$PROJECT_DIR$/12-crud/src/main/webapp/jsp/user_add.jsp" />
+        <option value="$PROJECT_DIR$/12-crud/pom.xml" />
+        <option value="$PROJECT_DIR$/12-crud/src/main/webapp/jsp/user_update.jsp" />
+        <option value="$PROJECT_DIR$/12-crud/src/main/java/cn/zyx/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/13-restful/pom.xml" />
+        <option value="$PROJECT_DIR$/13-restful/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/13-restful/src/main/webapp/resources/springmvc.xml" />
+        <option value="$PROJECT_DIR$/13-restful/src/main/java/cn/zyx/util/DataUtil.java" />
+        <option value="$PROJECT_DIR$/13-restful/src/main/resources/springmvc.xml" />
+        <option value="$PROJECT_DIR$/13-restful/src/main/java/cn/zyx/controller/UserRestController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/03-annotation/src/main/java/cn/zyx/anno/HelloSpringMVC.java" />
-        <option value="$PROJECT_DIR$/03-annotation/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/03-annotation/src/main/sources/springmvc.xml" />
-        <option value="$PROJECT_DIR$/03-annotation/src/main/resources/springmvc.xml" />
-        <option value="$PROJECT_DIR$/03-annotation/pom.xml" />
-        <option value="$PROJECT_DIR$/02urlpattern/pom.xml" />
-        <option value="$PROJECT_DIR$/01-firstSpringMVC/pom.xml" />
-        <option value="$PROJECT_DIR$/03-annotation/src/main/java/cn/zyx/anno/Annotest.java" />
-        <option value="$PROJECT_DIR$/03-annotation/src/main/java/cn/zyx/anno/Annotest01.java" />
-        <option value="$PROJECT_DIR$/03-annotation/src/main/webapp/jsp/post.jsp" />
-        <option value="$PROJECT_DIR$/03-annotation/src/main/java/cn/zyx/anno/Annotest02.java" />
-        <option value="$PROJECT_DIR$/03-annotation/src/main/webapp/index.jsp" />
-        <option value="$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/HelloSpringMVC.java" />
-        <option value="$PROJECT_DIR$/04-requestParams/pom.xml" />
-        <option value="$PROJECT_DIR$/04-requestParams/src/main/resources/springmvc.xml" />
-        <option value="$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/ParamsController.java" />
-        <option value="$PROJECT_DIR$/04-requestParams/src/main/webapp/jsp/result.jsp" />
-        <option value="$PROJECT_DIR$/04-requestParams/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
-        <option value="$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/ParamsController01.java" />
-        <option value="$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/ParamsController02.java" />
-        <option value="$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/bean/Country.java" />
-        <option value="$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/bean/Region.java" />
-        <option value="$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/bean/UserInformation.java" />
-        <option value="$PROJECT_DIR$/04-requestParams/src/main/webapp/jsp/regist.jsp" />
-        <option value="$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/UserInformationController.java" />
-        <option value="$PROJECT_DIR$/04-requestParams/src/main/webapp/jsp/userInfo.jsp" />
-        <option value="$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/PathController.java" />
-        <option value="$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/PathController01.java" />
+        <option value="$PROJECT_DIR$/13-restful/src/main/webapp/html/user_add.html" />
+        <option value="$PROJECT_DIR$/13-restful/src/main/webapp/html/user_update.html" />
+        <option value="$PROJECT_DIR$/13-restful/src/main/webapp/html/user_list.html" />
       </list>
     </option>
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -251,20 +243,26 @@
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <expand />
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="01-firstSpringMVC Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
       <select />
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="495" />
-    <option name="y" value="55" />
-    <option name="width" value="1180" />
-    <option name="height" value="835" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1940" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -279,137 +277,51 @@
               <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
               <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="zyx" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="zyx" type="462c0819:PsiDirectoryNode" />
-              <item name="bean" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="zyx" type="462c0819:PsiDirectoryNode" />
-              <item name="params" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="04-requestParams" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/04-requestParams/src/main/webapp/jsp" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/13-restful/src/main/webapp/css" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="project.structure.side.proportion" value="0.14593302" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\MyGitDocument\JAVA_learn\firstMVC\04-requestParams\src\main\webapp\jsp" />
-      <recent name="D:\MyGitDocument\JAVA_learn\firstMVC\04-requestParams\src\main\webapp\WEB-INF\jsp" />
-      <recent name="D:\MyGitDocument\JAVA_learn\firstMVC\04-requestParams\src\main\webapp\WEB-INF" />
-      <recent name="D:\MyGitDocument\JAVA_learn\firstMVC\04-requestParams\src\main\resources" />
-      <recent name="D:\MyGitDocument\JAVA_learn\firstMVC\03-annotation\src\main\webapp\jsp" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="cn.zyx.params" />
-      <recent name="cn.zyx.anno" />
-      <recent name="" />
-      <recent name="controller" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\MyGitDocument\JAVA_learn\firstMVC\13-restful\src\main\webapp" />
+      <recent name="D:\MyGitDocument\JAVA_learn\firstMVC\13-restful\src\main" />
       <recent name="D:\MyGitDocument\JAVA_learn\firstMVC\04-requestParams\src\main\webapp" />
       <recent name="D:\MyGitDocument\JAVA_learn\firstMVC\03-annotation\src\main\webapp" />
       <recent name="D:\MyGitDocument\JAVA_learn\firstMVC\02urlpattern\src\main\webapp" />
-      <recent name="D:\MyGitDocument\JAVA_learn\firstMVC\02urlpattern\src\main\webapp\WEB-INF\images" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.zyx.util" />
+      <recent name="cn.zyx.bean" />
+      <recent name="cn.zyx.returnValue" />
+      <recent name="cn.zyx.params" />
+      <recent name="cn.zyx.anno" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MyGitDocument\JAVA_learn\firstMVC\13-restful\src\main\webapp\css" />
+      <recent name="D:\MyGitDocument\JAVA_learn\firstMVC\13-restful\src\main\webapp\js" />
+      <recent name="D:\MyGitDocument\JAVA_learn\firstMVC\13-restful\src\main\webapp\html" />
+      <recent name="D:\MyGitDocument\JAVA_learn\firstMVC\13-restful\src\main\webapp\resources" />
+      <recent name="D:\MyGitDocument\JAVA_learn\firstMVC\12-crud\src\main\webapp\jsp" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -427,11 +339,11 @@
   <component name="RunManager">
     <configuration name="Tomcat 9" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.0.M26" ALTERNATIVE_JRE_ENABLED="false">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
-      <option name="UPDATING_POLICY" value="update-resources" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
-        <artifact name="_04requestParams:war exploded">
+        <artifact name="_13restful:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/Params" />
+            <option name="CONTEXT_PATH" value="/13" />
           </settings>
         </artifact>
       </deployment>
@@ -496,7 +408,7 @@
         <option name="BuildArtifacts" enabled="true">
           <artifact name="_01firstSpringMVC:war exploded" />
           <artifact name="_02urlpattern:war exploded" />
-          <artifact name="_04requestParams:war exploded" />
+          <artifact name="_13restful:war exploded" />
         </option>
       </method>
     </configuration>
@@ -568,7 +480,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0d5d2cf7-020e-4fff-ac7e-c31ae5130516" name="Default Changelist" comment="" />
+      <changelist id="3f0dafd8-d4c8-417d-846b-07e995ff5971" name="Default Changelist" comment="" />
       <created>1554631818413</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -594,6 +506,21 @@
       <workItem from="1556283575487" duration="4256000" />
       <workItem from="1556541686503" duration="5388000" />
       <workItem from="1557025767401" duration="7165000" />
+      <workItem from="1557106625253" duration="17570000" />
+      <workItem from="1557147835699" duration="2073000" />
+      <workItem from="1557192714598" duration="15762000" />
+      <workItem from="1557234848161" duration="5462000" />
+      <workItem from="1557278544131" duration="18583000" />
+      <workItem from="1557308949483" duration="577000" />
+      <workItem from="1557316141004" duration="30000" />
+      <workItem from="1557316192418" duration="6941000" />
+      <workItem from="1557572719259" duration="5431000" />
+      <workItem from="1557625653151" duration="113000" />
+      <workItem from="1557626021302" duration="6072000" />
+      <workItem from="1557665794323" duration="4767000" />
+      <workItem from="1557801147639" duration="10452000" />
+      <workItem from="1557838376171" duration="1594000" />
+      <workItem from="1557840989923" duration="574000" />
     </task>
     <task id="LOCAL-00001" summary="git add *">
       <created>1554637051196</created>
@@ -658,11 +585,74 @@
       <option name="project" value="LOCAL" />
       <updated>1557025889073</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="设置不同的方法返回值类型，分别实验接收">
+      <created>1557149818079</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1557149818079</updated>
+    </task>
+    <task id="LOCAL-00011" summary="SpringMVC转发与重定向">
+      <created>1557234913025</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1557234913025</updated>
+    </task>
+    <task id="LOCAL-00012" summary="SpringMVC异常处理 基本的有三种 自定义异常处理 默认异常处理 &#10;和spring mvc中的异常处理器 SimpleMappingExceptionResolver">
+      <created>1557235120478</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1557235120478</updated>
+    </task>
+    <task id="LOCAL-00013" summary="数据类型转换 及自定义数据类型转换">
+      <created>1557237125576</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1557237125576</updated>
+    </task>
+    <task id="LOCAL-00014" summary="通过spring mvc+hibernate validator 完成数据校验">
+      <created>1557322994468</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1557322994468</updated>
+    </task>
+    <task id="LOCAL-00015" summary="MultipartFile 来实现文件上传  文件会上传至运行后产生的target文件夹中&#10;并不会直接加到工程的upload文件夹">
+      <created>1557323170493</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1557323170493</updated>
+    </task>
+    <task id="LOCAL-00016" summary="spring mvc中的拦截器interceptor">
+      <created>1557583774372</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1557583774372</updated>
+    </task>
+    <task id="LOCAL-00017" summary="MVC模拟数据库crud实现页面操作增删改查">
+      <created>1557670448830</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1557670448831</updated>
+    </task>
+    <task id="LOCAL-00018" summary="依旧用模拟的方式写一个rest风格的增删改查，接下来就该进入mybatis了">
+      <created>1557838566332</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1557838566332</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47189000" />
+    <option name="totallyTimeSpent" value="143985000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -676,27 +666,28 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3264075" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Web" order="2" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49684212" visible="true" weight="0.38404825" />
+      <window_info id="Structure" order="1" sideWeight="0.5021097" side_tool="true" weight="0.33512065" />
+      <window_info id="Web" order="2" sideWeight="0.5031579" side_tool="true" weight="0.34919572" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Favorites" order="5" sideWeight="0.5021097" side_tool="true" weight="0.33512065" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49798927" visible="true" weight="0.32719547" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49731904" weight="0.32719547" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.24929178" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49798927" weight="0.32719547" />
       <window_info anchor="bottom" id="Spring" order="9" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5020107" side_tool="true" weight="0.32719547" />
-      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49887133" weight="0.32719547" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5020107" side_tool="true" visible="true" weight="0.32719547" />
+      <window_info active="true" anchor="bottom" id="Messages" order="13" sideWeight="0.49798927" visible="true" weight="0.32719547" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" weight="0.3286119" />
+      <window_info anchor="bottom" id="Problems" order="15" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -704,6 +695,7 @@
       <window_info anchor="right" id="Database" order="4" weight="0.3297587" />
       <window_info anchor="right" id="Maven" order="5" weight="0.32908848" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Bean Validation" order="7" weight="0.3297587" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -760,365 +752,410 @@
     <MESSAGE value="注解的方式写springMVC的get和post的过滤处理" />
     <MESSAGE value="requestParams 学习  modelAndView中可以把页面传递参数的name当做参数来传递 &#10;但是这样不好，一个函数的参数不宜过多--参考代码整洁之道" />
     <MESSAGE value="测试修改本地全局邮箱后有没有提交记录" />
-    <option name="LAST_COMMIT_MESSAGE" value="测试修改本地全局邮箱后有没有提交记录" />
+    <MESSAGE value="设置不同的方法返回值类型，分别实验接收" />
+    <MESSAGE value="SpringMVC转发与重定向" />
+    <MESSAGE value="SpringMVC异常处理 基本的有三种 自定义异常处理 默认异常处理 &#10;和spring mvc中的异常处理器 SimpleMappingExceptionResolver" />
+    <MESSAGE value="数据类型转换 及自定义数据类型转换" />
+    <MESSAGE value="通过spring mvc+hibernate validator 完成数据校验" />
+    <MESSAGE value="MultipartFile 来实现文件上传  文件会上传至运行后产生的target文件夹中&#10;并不会直接加到工程的upload文件夹" />
+    <MESSAGE value="spring mvc中的拦截器interceptor" />
+    <MESSAGE value="模拟数据库crud实现增删改查" />
+    <MESSAGE value="MVC模拟数据库crud实现页面操作增删改查" />
+    <MESSAGE value="依旧用模拟的方式写一个rest风格的增删改查，接下来就该进入mybatis了" />
+    <option name="LAST_COMMIT_MESSAGE" value="依旧用模拟的方式写一个rest风格的增删改查，接下来就该进入mybatis了" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand>
+      <path>
+        <item name="firstMVC" type="b2602c69:ProjectViewProjectNode" />
+        <item name="firstMVC" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/01-firstSpringMVC/src/main/resources/springmvc.xml">
+    <entry file="file://$PROJECT_DIR$/10-upload/src/main/webapp/jsp/uploadFail.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="18" column="71" lean-forward="true" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
+        <state relative-caret-position="266">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/modules.xml" />
-    <entry file="file://$PROJECT_DIR$/.idea/firstMVC.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/01-firstSpringMVC/src/main/java/cn/zyx/controller/HelloSpringMVC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/01-firstSpringMVC/src/main/webapp/WEB-INF/jsp/first.jsp">
+    <entry file="file://$PROJECT_DIR$/10-upload/src/main/webapp/jsp/uploadSuccess.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/02urlpattern/src/main/webapp/WEB-INF/jsp/first.jsp">
+    <entry file="file://$PROJECT_DIR$/09-validation/src/main/webapp/jsp/register.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/02urlpattern/src/main/webapp/index.jsp">
+    <entry file="file://$PROJECT_DIR$/09-validation/src/main/resources/springmvc.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        <state relative-caret-position="323">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/01-firstSpringMVC/src/main/webapp/WEB-INF/web.xml">
+    <entry file="file://$PROJECT_DIR$/09-validation/src/main/java/cn/zyx/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/03-annotation/src/main/java/cn/zyx/anno/TestController01.java" />
-    <entry file="file://$PROJECT_DIR$/02urlpattern/src/main/resources/springmvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="15" lean-forward="true" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/03-annotation/src/main/java/HelloSpringMVC.java" />
-    <entry file="file://$PROJECT_DIR$/03-annotation/src/main/java/cn/zyx/annot/HelloSpringMVC.java" />
-    <entry file="file://$PROJECT_DIR$/03-annotation/src/main/webapp/springmvc.xml" />
-    <entry file="file://$PROJECT_DIR$/02urlpattern/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="38" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.4.RELEASE/spring-webmvc-5.0.4.RELEASE.jar!/org/springframework/web/servlet/handler/BeanNameUrlHandlerMapping.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/02urlpattern/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/01-firstSpringMVC/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="27" column="42" lean-forward="true" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/03-annotation/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/03-annotation/src/main/java/cn/zyx/anno/HelloSpringMVC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        <state relative-caret-position="235">
+          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/03-annotation/src/main/resources/springmvc.xml">
+    <entry file="file://$PROJECT_DIR$/10-upload/src/main/webapp/jsp/upload.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" column="65" selection-start-line="25" selection-start-column="65" selection-end-line="25" selection-end-column="65" />
+        <state relative-caret-position="247">
+          <caret line="13" column="74" selection-start-line="13" selection-start-column="74" selection-end-line="13" selection-end-column="74" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/03-annotation/src/main/java/cn/zyx/anno/Annotest.java">
+    <entry file="file://$PROJECT_DIR$/10-upload/src/main/resources/springmvc.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="418">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/10-upload/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="53" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/09-validation/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="42" column="22" selection-start-line="6" selection-start-column="4" selection-end-line="42" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/10-upload/src/main/java/cn/zyx/controller/UploadController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="74" column="60" selection-start-line="74" selection-start-column="60" selection-end-line="74" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/03-annotation/src/main/java/cn/zyx/anno/Annotest01.java">
+    <entry file="file://$PROJECT_DIR$/11-interceptor/src/main/webapp/jsp/result.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11-interceptor/src/main/java/cn/zyx/interceptor/MyInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11-interceptor/src/main/resources/springmvc.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <caret line="24" column="57" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/03-annotation/src/main/webapp/jsp/first.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="65" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/11-interceptor/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/03-annotation/src/main/java/cn/zyx/anno/Annotest02.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/03-annotation/src/main/webapp/jsp/get.jsp">
+    <entry file="file://$PROJECT_DIR$/11-interceptor/src/main/java/cn/zyx/filter/MyFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/03-annotation/src/main/webapp/jsp/post.jsp">
+    <entry file="file://$PROJECT_DIR$/11-interceptor/src/main/java/cn/zyx/controller/InterceptorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/03-annotation/src/main/webapp/jsp/test1.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.0.4.RELEASE/spring-beans-5.0.4.RELEASE.jar!/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4503">
-          <caret line="311" selection-start-line="311" selection-end-line="311" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/02urlpattern/src/main/java/cn/zyx/urlController/HelloSpringMVC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        <state relative-caret-position="228">
+          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/03-annotation/src/main/webapp/index.jsp">
+    <entry file="file://$PROJECT_DIR$/11-interceptor/src/main/java/cn/zyx/interceptor/PermissionInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="342">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11-interceptor/src/main/webapp/jsp/loginFail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11-interceptor/src/main/webapp/jsp/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11-interceptor/src/main/webapp/jsp/loginSuccess.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11-interceptor/src/main/java/cn/zyx/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11-interceptor/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="42" column="22" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="42" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/12-crud/src/main/java/cn/zyx/bean.java" />
+    <entry file="file://$PROJECT_DIR$/12-crud/src/main/webapp/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/12-crud/src/main/java/cn/zyx/util/DataUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1311">
+          <caret line="79" column="13" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/12-crud/src/main/java/cn/zyx/bean/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#601#602#0" expanded="true" />
+            <element signature="e#633#634#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/12-crud/src/main/webapp/jsp/user_add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/12-crud/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/12-crud/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="42" column="22" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="42" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/13-restful/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/13-restful/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/13-restful/src/main/webapp/js/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/13-restful/src/main/webapp/js/jquery-3.3.1.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/13-restful/src/main/java/cn/zyx/bean/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/12-crud/src/main/java/cn/zyx/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/12-crud/src/main/webapp/jsp/user_list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="874">
+          <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/12-crud/src/main/webapp/jsp/user_update.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/12-crud/src/main/resources/springmvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="950">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/13-restful/src/main/webapp/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://D:/Java/jdk1.8.0_181/jre/lib/plugin.jar!/sun/plugin/javascript/navig/Location.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-57">
+          <folding>
+            <element signature="e#0#508#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Java/jdk1.8.0_181/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="1470" selection-start-line="1470" selection-end-line="1470" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Java/jdk1.8.0_181/src.zip!/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="611" selection-start-line="611" selection-end-line="611" />
+          <folding>
+            <element signature="e#24394#24395#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.47/fastjson-1.2.47.jar!/com/alibaba/fastjson/JSON.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="403" selection-start-line="403" selection-end-line="403" />
+          <folding>
+            <element signature="e#15194#15195#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/13-restful/src/main/resources/springmvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="70" column="34" lean-forward="true" selection-start-line="70" selection-start-column="34" selection-end-line="70" selection-end-column="34" />
+        <state relative-caret-position="1558">
+          <caret line="82" column="16" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/04-requestParams/pom.xml">
+    <entry file="file://$PROJECT_DIR$/13-restful/src/main/java/cn/zyx/controller/UserRestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        <state relative-caret-position="1558">
+          <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/resources/springmvc.xml">
+    <entry file="file://$PROJECT_DIR$/13-restful/src/main/webapp/html/user_update.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        <state relative-caret-position="1368">
+          <caret line="72" column="39" selection-start-line="72" selection-start-column="39" selection-end-line="72" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.4.RELEASE/spring-web-5.0.4.RELEASE.jar!/org/springframework/web/filter/GenericFilterBean.class">
+    <entry file="file://$PROJECT_DIR$/13-restful/src/main/webapp/html/user_add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="46" column="36" lean-forward="true" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
+        <state relative-caret-position="1292">
+          <caret line="68" column="32" selection-start-line="65" selection-start-column="24" selection-end-line="68" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.4.RELEASE/spring-web-5.0.4.RELEASE.jar!/org/springframework/web/filter/OncePerRequestFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="16" column="60" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.4.RELEASE/spring-web-5.0.4.RELEASE.jar!/org/springframework/web/filter/CharacterEncodingFilter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="30" column="73" selection-start-line="30" selection-start-column="60" selection-end-line="30" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/HelloSpringMVC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/webapp/jsp/first.jsp">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/03-annotation/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="22" selection-start-line="6" selection-start-column="4" selection-end-line="20" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/ParamsController01.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/webapp/WEB-INF/web.xml">
+    <entry file="file://$PROJECT_DIR$/13-restful/src/main/webapp/html/user_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
-          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <caret line="82" column="15" selection-start-line="82" selection-start-column="15" selection-end-line="82" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/webapp/jsp/result.jsp">
+    <entry file="file://$PROJECT_DIR$/13-restful/src/main/java/cn/zyx/util/DataUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/bean/Region.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-          <folding>
-            <element signature="e#183#184#0" expanded="true" />
-            <element signature="e#229#230#0" expanded="true" />
-            <element signature="e#267#268#0" expanded="true" />
-            <element signature="e#302#303#0" expanded="true" />
-            <element signature="e#333#334#0" expanded="true" />
-            <element signature="e#381#382#0" expanded="true" />
-            <element signature="e#421#422#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/bean/UserInformation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-          <folding>
-            <element signature="e#166#167#0" expanded="true" />
-            <element signature="e#195#196#0" expanded="true" />
-            <element signature="e#239#240#0" expanded="true" />
-            <element signature="e#275#276#0" expanded="true" />
-            <element signature="e#146#147#0" expanded="true" />
-            <element signature="e#177#178#0" expanded="true" />
-            <element signature="e#225#226#0" expanded="true" />
-            <element signature="e#265#266#0" expanded="true" />
-            <element signature="e#296#297#0" expanded="true" />
-            <element signature="e#326#327#0" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
-            <element signature="e#407#408#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/webapp/jsp/regist.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="54" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/UserInformationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/ParamsController02.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/webapp/jsp/userInfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/04-requestParams/src/main/java/cn/zyx/params/PathController01.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="113" selection-start-line="16" selection-start-column="113" selection-end-line="16" selection-end-column="113" />
+        <state relative-caret-position="141">
+          <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1131,7 +1168,19 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>_03annotation:war exploded</last-edited>
+          <last-edited>_05returnValue:war exploded</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.14593302" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="Copyright.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1143,11 +1192,11 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Web (_04requestParams)|Web</last-edited>
+          <last-edited>Web (_13restful)|Web</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.14593302" />
               </list>
             </option>
           </splitter-proportions>
@@ -1155,11 +1204,11 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>jquery-1.11.3.min</last-edited>
+          <last-edited>@types/jquery</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.14593302" />
               </list>
             </option>
           </splitter-proportions>
@@ -1171,7 +1220,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.14593302" />
               </list>
             </option>
           </splitter-proportions>
@@ -1183,7 +1232,8 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.14593302" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -1203,7 +1253,18 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: org.springframework:spring-aop:5.0.4.RELEASE</last-edited>
+          <last-edited>Maven: com.alibaba:fastjson:1.2.47</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.14593302" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
