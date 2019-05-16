@@ -1,3 +1,7 @@
+# Directory
 .idea/
 target/
 out/
+
+# log File
+*.log
