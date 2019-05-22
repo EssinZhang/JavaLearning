@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zyx.dao.StudentDao">
+    <!--parameterType可省略-->
+    <!--设置别名之后 parameterType 中的值设置成响应别名  如果是只设置package标签的情况下  别名就是类名首字母小写后的名字-->
+    <!--前三个参数对应数据库中的三个字段，后三个参数对应bean下对应的字段名-->
+    <!--select 获取自增的主键-->
+    <insert id="insertStudent">
+        INSERT INTO t_student(name,age,score) VALUES (#{name},#{age},#{score})
+        <selectKey resultType="int" keyProperty="id" order="AFTER">
+            SELECT @@identity
+        </selectKey>
+    </insert>
+    <delete id="deleteStudent">
+        DELETE FROM t_student WHERE id=#{XXX}
+    </delete>
+    <update id="updateStudent">
+        UPDATE t_student SET name=#{name},age=#{age},score=#{score} WHERE id=#{id}
+    </update>
+    <!--resultType要写上单条数据对应的类-->
+    <!--查询尽量不出现*，会影响执行效率-->
+    <select id="selectAllStudent" resultType="Student">
+        SELECT id,name,age,score FROM t_student
+    </select>
+    <select id="selectStudentById" resultType="Student">
+        SELECT id,name,age,score FROM t_student WHERE id=#{id}
+    </select>
+    <select id="selectStudentByName" resultType="Student">
+        SELECT id,name,age,score FROM t_student WHERE name LIKE '%' #{name} '%'
+    </select>
+
+    <resultMap id="studentMapper" type="Student">
+        <id column="id" property="id"/>
+        <result column="password" property="pwd"/>
+    </resultMap>
+
+    <select id="selectStudentPwd" resultMap="studentMapper">
+        SELECT id,name,age,score,password FROM t_student WHERE id=#{id}
+    </select>
+</mapper>
