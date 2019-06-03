@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zyx.dao.TeamDao">
+
+    <!--单表查询方式-->
+    <resultMap id="teamMap" type="Team">
+        <id column="id" property="id"/>
+        <collection property="playerList" ofType="Player" select="selectPlayerByTeamId" column="id"/>
+    </resultMap>
+
+    <select id="selectPlayerByTeamId" resultType="Player">
+        SELECT id,name FROM t_player WHERE tid=#{id}
+    </select>
+
+    <select id="selectTeamById" resultMap="teamMap">
+        SELECT id,name FROM t_team WHERE id=#{id}
+    </select>
+
+</mapper>

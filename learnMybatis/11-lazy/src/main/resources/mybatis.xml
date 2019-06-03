@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--注册db配置文件-->
+    <properties resource="db.properties"/>
+
+    <settings>
+        <!--延迟加载的总开关-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--侵入式延迟加载开关-->
+        <!--3.4.1版本之前默认是true-->
+        <!--深度延迟加载就是把value设置成false  就这个测试程序而言如果只需要队名则只执行球队查询sql-->
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+    
+    <!--Mybatis配置文件中的标签是有顺序的-->
+    <!--注册实体类的别名-->
+    <typeAliases>
+        <!--方式一：这种方式配置不太方便-->
+        <!--<typeAlias type="cn.zyx.bean.Student" alias="stu"/>-->
+        <!--方式二：Mybatis会在指定的包下查找相关javaBean-->
+        <package name="cn.zyx.bean"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.user}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!--注册映射文件-->
+        <mapper resource="cn/zyx/dao/TeamMapper.xml"/>
+    </mappers>
+</configuration>
