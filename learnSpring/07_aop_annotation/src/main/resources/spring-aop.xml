@@ -1,0 +1,45 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--<bean id="userService" class="cn.zyx.service.impl.UserServiceImpl"/>
+    <bean id="myAspect" class="cn.zyx.aspect.MyAspect"/>
+
+    &lt;!&ndash;配置AOP&ndash;&gt;
+    <aop:config>
+        &lt;!&ndash;定义切入点&ndash;&gt;
+        <aop:pointcut id="addUserPointcut" expression="execution(* cn.zyx.service.impl.UserServiceImpl.addUser())"/>
+        <aop:pointcut id="selectUserPointcut" expression="execution(* cn.zyx.service.impl.UserServiceImpl.selectUser())"/>
+        <aop:pointcut id="selectUserByIdPointcut" expression="execution(* cn.zyx.service.impl.UserServiceImpl.selectUserById(..))"/>
+        <aop:pointcut id="updateUserPointcut" expression="execution(* cn.zyx.service.impl.UserServiceImpl.updateUser())"/>
+        <aop:pointcut id="deleteUserPointcut" expression="execution(* cn.zyx.service.impl.UserServiceImpl.deleteUser())"/>
+
+        &lt;!&ndash;定义切面&ndash;&gt;
+        <aop:aspect ref="myAspect">
+            &lt;!&ndash;前置通知&ndash;&gt;
+            <aop:before method="before" pointcut-ref="addUserPointcut"/>
+            &lt;!&ndash;后置通知&ndash;&gt;
+            <aop:after-returning method="afterReturning" pointcut-ref="updateUserPointcut" returning="result"/>
+            &lt;!&ndash;异常通知&ndash;&gt;
+            <aop:after-throwing method="afterThrowing" pointcut-ref="selectUserByIdPointcut" throwing="e"/>
+            &lt;!&ndash;最终通知&ndash;&gt;
+            <aop:after method="after" pointcut-ref="selectUserPointcut"/>
+            &lt;!&ndash;环绕通知&ndash;&gt;
+            <aop:around method="around" pointcut-ref="deleteUserPointcut"/>
+
+        </aop:aspect>
+    </aop:config>-->
+    <!--文件扫描器-->
+    <context:component-scan base-package="cn.zyx"/>
+
+    <!--配置aspectJ自动代理-->
+    <aop:aspectj-autoproxy/>
+
+</beans>
