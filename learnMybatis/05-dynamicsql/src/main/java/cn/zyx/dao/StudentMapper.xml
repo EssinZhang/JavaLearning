@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zyx.dao.StudentDao">
+    <!--动态查询-->
+    <select id="selectIf" resultType="Student">
+        SELECT id,name,age,score,password FROM t_student
+
+        WHERE 1=1
+        <if test="name != null and name != ''">
+            AND name LIKE '%' #{name} '%'
+        </if>
+        <if test="age>0">
+            AND age > #{age}
+        </if>
+    </select>
+
+    <select id="selectWhere" resultType="Student">
+        SELECT id,name,age,score,password FROM t_student
+
+        <where>
+            <if test="name != null and name != ''">
+                AND name LIKE '%' #{name} '%'
+            </if>
+            <if test="age>0">
+                AND age > #{age}
+            </if>
+        </where>
+    </select>
+
+    <!--条件查询 看顺序 符合第一个when就根据第一个when中的条件查 不符合则向后找符合的 如果都不符合就没有条件-->
+    <!--可以添加otherwise标签 在前面都不符合时执行该条件 一般设置为1 ！= 1 代表都不符合是什么都不查-->
+    <select id="selectChoose" resultType="Student">
+        SELECT id,name,age,score,password FROM t_student
+
+        <where>
+            <choose>
+                <when test="name != null and name != ''">
+                    name LIKE '%' #{name} '%'
+                </when>
+                <when test="age>0">
+                    age > #{age}
+                </when>
+                <otherwise>
+                    1 != 1
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+    
+    <!--定义一个sql片段-->
+    <sql id="selectStu">
+        SELECT id,name,age,score,password FROM t_student
+    </sql>
+
+    <select id="selectForEachArray" resultType="student">
+        <!-- 使用sql片段 -->
+        <include refid="selectStu"></include>
+        
+        <if test="array != null and array.length>0">
+            WHERE id IN
+            <foreach collection="array" open="(" close=")" item="id" separator=",">
+                #{id}
+            </foreach>
+        </if>
+    </select>
+
+    <select id="selectForEachList" resultType="student">
+        <include refid="selectStu"></include>
+        <if test="list != null and list.size>0">
+            WHERE id IN
+            <foreach collection="list" open="(" item="id" close=")" separator=",">
+                #{id}
+            </foreach>
+        </if>
+    </select>
+
+    <select id="selectForEachStuList" resultType="student">
+        <include refid="selectStu"></include>
+        <if test="list != null and list.size>0">
+            WHERE id IN
+            <foreach collection="list" open="(" item="stu" close=")" separator=",">
+                #{stu.id}
+            </foreach>
+        </if>
+    </select>
+
+    <select id="selectWarn" resultType="Student">
+        SELECT id,name,age,score,password FROM t_student
+
+        <where>
+            <if test="name != null and name != ''">
+                AND name LIKE '%' #{name} '%'
+            </if>
+            <if test="age>0">
+                <!--符号可能会有问题 例如 < 会被认为是标签的头 所以这里可以用实体符号去替换-->
+                AND age &gt; #{age}
+            </if>
+        </where>
+    </select>
+</mapper>

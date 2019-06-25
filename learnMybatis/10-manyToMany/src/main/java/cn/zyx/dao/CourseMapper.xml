@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zyx.dao.CourseDao">
+    
+    <resultMap id="courseMap" type="course">
+        <id column="cid" property="id"/>
+        <result column="cname" property="name"/>
+        
+        <collection property="students" ofType="student">
+            <id column="sid" property="id"/>
+            <result column="sname" property="name"/>
+        </collection>
+    </resultMap>
+    
+    <select id="selectCourseStudentById" resultMap="courseMap">
+        SELECT c.id cid,c.name cname,s.id sid,s.name sname
+        FROM t_course c,t_student s,t_student_course sc
+        WHERE c.id=#{id}
+            AND s.id=sc.sid
+            AND c.id=sc.cid
+    </select>
+
+</mapper>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zyx">
+    <!--parameterType可省略-->
+    <!--前三个参数对应数据库中的三个字段，后三个参数对应bean下对应的字段名-->
+    <insert id="insertStudent" parameterType="cn.zyx.bean.Student">
+        INSERT INTO t_student(name,age,score) VALUES (#{name},#{age},#{score})
+    </insert>
+</mapper>

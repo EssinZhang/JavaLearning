@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zyx.dao.PlayerDao">
+
+    <resultMap id="playerMap" type="Player">
+        <!--player基本属性-->
+        <id column="pid" property="id"/>
+        <result column="pname" property="name"/>
+
+        <!--关联属性映射-->
+        <association property="team" javaType="team">
+            <id column="tid" property="id"/>
+            <result column="tname" property="name"/>
+        </association>
+    </resultMap>
+
+    <select id="selectPlayerById" resultMap="playerMap">
+        SELECT p.id pid,p.name pname,t.id tid,t.name tname
+        FROM t_player p,t_team t
+        WHERE p.tid=t.id AND p.id=#{id}
+    </select>
+
+    <select id="selectPlayer" resultMap="playerMap">
+        SELECT p.id pid,p.name pname,t.id tid,t.name tname
+        FROM t_player p,t_team t
+        WHERE p.tid=t.id
+    </select>
+
+
+</mapper>
