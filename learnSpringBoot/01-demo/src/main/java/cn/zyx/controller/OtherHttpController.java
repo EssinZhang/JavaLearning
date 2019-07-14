@@ -35,6 +35,9 @@ public class OtherHttpController {
     public Object put(String id){
         params.clear();
         params.put("id", id);
+
+        System.out.println("gogogogooggo");
+
         return params;
     }
 
