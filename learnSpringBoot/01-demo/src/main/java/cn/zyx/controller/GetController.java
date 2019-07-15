@@ -1,7 +1,8 @@
 package cn.zyx.controller;
 
+import cn.zyx.domain.ServerSettings;
 import cn.zyx.domain.User;
-import org.springframework.boot.SpringApplication;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
@@ -103,6 +104,15 @@ public class GetController {
         params.put("id",id);
 
         return params;
+    }
+
+    @Autowired
+    private ServerSettings serverSettings;
+
+    @GetMapping("/v1/test_properties")
+    public Object testProperties(){
+
+        return serverSettings;
     }
 
 }

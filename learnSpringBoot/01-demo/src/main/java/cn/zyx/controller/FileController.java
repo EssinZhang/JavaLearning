@@ -1,9 +1,8 @@
 package cn.zyx.controller;
 
 import cn.zyx.domain.JsonData;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,9 +14,12 @@ import java.io.IOException;
 import java.util.UUID;
 
 @RestController
-@EnableAutoConfiguration
+@PropertySource({"classpath:application.properties"})
 public class FileController {
-    private static final String filePath = "D:/MyGitDocument/JAVA_learn/learnSpringBoot/01-demo/src/main/resources/static/images/";
+
+
+    @Value("${web.fileUpload.path}")
+    private static final String filePath = "";
 
     @RequestMapping(value = "images")
     public JsonData upload(@RequestParam("head_img") MultipartFile file, HttpServletRequest request) {
@@ -35,6 +37,7 @@ public class FileController {
         //文件上传后的路径·
         fileName = UUID.randomUUID() + suffixName;
         File dest = new File(filePath+fileName);
+        System.out.println("文件上传后的路径："+dest);
 
         try {
             file.transferTo(dest);
