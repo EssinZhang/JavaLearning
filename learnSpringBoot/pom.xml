@@ -9,6 +9,7 @@
   <version>1.0-SNAPSHOT</version>
   <modules>
     <module>01-demo</module>
+    <module>02-testdemo</module>
   </modules>
   <packaging>pom</packaging>
 
