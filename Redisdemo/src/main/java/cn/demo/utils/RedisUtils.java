@@ -1,6 +1,7 @@
 package cn.demo.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.data.redis.core.*;
 import org.springframework.stereotype.Component;
 

@@ -12,6 +12,7 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -23,7 +24,7 @@ import java.sql.SQLException;
 
 @Configuration
 @MapperScan("cn.demo.mapper")
-//@EnableRedisHttpSession(maxInactiveIntervalInSeconds= 50)
+@EnableRedisHttpSession(maxInactiveIntervalInSeconds= 50)
 public class DataSourceConfig {
     private Logger logger = LoggerFactory.getLogger(DataSourceConfig.class);
 
