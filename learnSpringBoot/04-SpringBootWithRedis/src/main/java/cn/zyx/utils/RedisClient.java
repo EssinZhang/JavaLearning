@@ -30,9 +30,10 @@ public class RedisClient {
     }
 
     /**
-     * 通过key过去缓存里面的值
+     * 通过key取缓存里面的值
      * @param key
      * @return
+     *
      */
     public String get(String key){
         /*回去要查空值判断方法，这样写会有空指针，目前想法是try catch*/
