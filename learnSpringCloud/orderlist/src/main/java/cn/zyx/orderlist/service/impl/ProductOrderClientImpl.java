@@ -8,4 +8,6 @@ package cn.zyx.orderlist.service.impl;
  * version: 1.0 <br>
  */
 public class ProductOrderClientImpl {
+
+
 }
