@@ -11,6 +11,11 @@ eureka:
 spring:
   application:
     name: order-service
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    timeout: 2000
 
 #开启feign对hystrix的支持
 feign:
@@ -20,4 +25,5 @@ feign:
     default-config:
       connectTimeout: 2000
       readTimeout: 2000
+
 
