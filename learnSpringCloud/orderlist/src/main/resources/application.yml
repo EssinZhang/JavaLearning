@@ -1,14 +1,23 @@
 server:
   port: 8781
 
-#Ö¸¶¨×¢²áÖĞĞÄµØÖ·
+#æŒ‡å®šæ³¨å†Œä¸­å¿ƒåœ°å€
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
-#·şÎñÃû³Æ
+#æœåŠ¡åç§°
 spring:
   application:
     name: order-service
+
+#å¼€å¯feignå¯¹hystrixçš„æ”¯æŒ
+feign:
+  hystrix:
+    enabled: true
+  client:
+    default-config:
+      connectTimeout: 2000
+      readTimeout: 2000
 
