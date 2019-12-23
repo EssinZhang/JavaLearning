@@ -39,7 +39,7 @@ public class OrderController {
     public Object saveOrderFail(int userId,int productId){
         Map<String,Object> failMsg = new HashMap<>();
         failMsg.put("code",-1);
-        failMsg.put("msg","当前访问人数过多，请稍后重试");
+        failMsg.put("msg","当前访问人数过多，请稍后重试........");
         return failMsg;
     }
 
