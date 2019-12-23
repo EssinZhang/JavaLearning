@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * 控制层
  * @author ZYX'sDay
@@ -39,6 +41,11 @@ public class ProductController {
      */
     @RequestMapping("getById")
     public Object getProductById(int id){
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Product product = productService.getById(id);
         Product result = new Product();
         BeanUtils.copyProperties(product,result);
