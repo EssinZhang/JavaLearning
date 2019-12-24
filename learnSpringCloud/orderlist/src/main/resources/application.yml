@@ -26,4 +26,26 @@ feign:
       connectTimeout: 2000
       readTimeout: 2000
 
+##把hystrix超时时间禁用
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        timeout:
+#          enabled: false
 
+#修改超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 4000
+
+#endpoint  断路器Dashboard  * 暴露全部监控信息
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
