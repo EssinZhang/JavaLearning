@@ -41,11 +41,11 @@ public class ProductController {
      */
     @RequestMapping("getById")
     public Object getProductById(int id){
-        try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            TimeUnit.SECONDS.sleep(2);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         Product product = productService.getById(id);
         Product result = new Product();
         BeanUtils.copyProperties(product,result);
