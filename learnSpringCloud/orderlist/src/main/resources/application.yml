@@ -16,6 +16,12 @@ spring:
     host: 127.0.0.1
     port: 6379
     timeout: 2000
+  zipkin:
+    base-url: http://39.97.232.41:9411/
+  #配置采样百分比，开发环境可以设置为1
+  sleuth:
+    sampler:
+      probability: 1
 
 #开启feign对hystrix的支持
 feign:

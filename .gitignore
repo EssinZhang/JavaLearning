@@ -5,3 +5,6 @@ out/
 
 # log File
 *.log
+learnSpringCloud/api-gateway/.mvn/wrapper/MavenWrapperDownloader.java
+learnSpringCloud/api-gateway/.mvn/wrapper/maven-wrapper.properties
+learnSpringCloud/api-gateway/.mvn/wrapper/maven-wrapper.jar
