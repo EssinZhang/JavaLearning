@@ -5,7 +5,7 @@ eureka:
   instance:
     hostname: localhost
   client:
-    #ÉùÃ÷×Ô¼ºÊÇ¸ö·şÎñ¶Ë
+    #å£°æ˜è¿™æ˜¯ä¸€ä¸ªæœåŠ¡æ³¨å†Œä¸­å¿ƒ
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
