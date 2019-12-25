@@ -5,17 +5,19 @@ spring:
   application:
     name: api-gateway
 
-#Ö¸¶¨×¢²áÖĞĞÄµØÖ·
+#æŒ‡å®šæ³¨å†Œä¸­å¿ƒåœ°å€
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
-#×Ô¶¨ÒåÂ·ÓÉÓ³Éä
+#è‡ªå®šä¹‰è·¯ç”±æ˜ å°„
 zuul:
   routes:
     order-service: /apigateway/order/**
     product-service: /apigateway/product/**
     ignored-patterns: /*-service/**
-    #Èç¹ûÒªºöÂÔÕû¸ö·şÎñµÄ»°Ö±½ÓÅäÖÃºöÂÔµÄ·şÎñÃû¾ÍĞĞ
+    #ç»Ÿä¸€å…¥å£ä¸ºä¸Šé¢çš„é…ç½®ï¼Œå…¶ä»–å…¥å£å¿½ç•¥
     #ignored-services: product-service
+    #å¤„ç†httpè¯·æ±‚å¤´ä¸ºç©ºçš„é—®é¢˜
+    sensitive-headers:
