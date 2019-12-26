@@ -1,0 +1,8 @@
+﻿{
+  "properties": [
+    {
+      "name": "spring.cloud.config.discovery.enabled",
+      "type": "java.lang.String",
+      "description": "Description for spring.cloud.config.discovery.enabled."
+  }
+] }

@@ -4,7 +4,10 @@ import cn.zyx.orderlist.service.ProductOrderService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +26,7 @@ import java.util.concurrent.TimeUnit;
  */
 @RestController
 @RequestMapping("order/")
+@RefreshScope
 public class OrderController {
 
     @Autowired
@@ -30,6 +34,9 @@ public class OrderController {
 
     @Autowired
     private RedisTemplate redisTemplate;
+
+    @Value("${env}")
+    private String env;
 
     @RequestMapping("save")
     @HystrixCommand(fallbackMethod = "saveOrderFail")
@@ -70,6 +77,11 @@ public class OrderController {
         failMsg.put("code",-1);
         failMsg.put("msg","当前访问人数过多，请稍后重试........");
         return failMsg;
+    }
+
+    @GetMapping("/mqtest")
+    public String mqTest(){
+        return env;
     }
 
 }
