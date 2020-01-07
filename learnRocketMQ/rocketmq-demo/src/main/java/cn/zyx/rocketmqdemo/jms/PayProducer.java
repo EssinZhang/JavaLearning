@@ -15,7 +15,7 @@ public class PayProducer {
 
     private String producerGroup = "pay_group";
 
-    private String nameServerAddr = "39.97.232.41";
+    private String nameServerAddr = "39.97.232.41:9876";
 
     private DefaultMQProducer defaultMQProducer;
 
