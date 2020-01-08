@@ -15,8 +15,6 @@ public class PayProducer {
 
     private String producerGroup = "pay_group";
 
-    private String nameServerAddr = "39.97.232.41:9876";
-
     private DefaultMQProducer defaultMQProducer;
 
     public PayProducer(){
@@ -25,7 +23,7 @@ public class PayProducer {
         //指定NameServer地址，多个地址以；隔开
         //如 producer.setNamesrvAddr(nameServerAddr)
 
-        defaultMQProducer.setNamesrvAddr(nameServerAddr);
+        defaultMQProducer.setNamesrvAddr(JmsConfig.nameServerADDR);
 
         start();
 
