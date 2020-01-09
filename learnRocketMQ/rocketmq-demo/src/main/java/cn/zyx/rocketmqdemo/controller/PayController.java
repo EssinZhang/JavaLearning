@@ -21,13 +21,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PayController {
 
-    @Autowired
-    private PayProducer payProducer;
+    /*@Autowired
+    private PayProducer payProducer;*/
 
     @RequestMapping("/api/v1/mqtest")
     public Object callback(String text) throws InterruptedException, RemotingException, MQClientException, MQBrokerException {
 
-        Message message = new Message(JmsConfig.TOPIC,"tags",("hello RocketMQ = "+text).getBytes());
+        PayProducer payProducer;
+
+        Message message = new Message(JmsConfig.topic,"tags",("hello RocketMQ = "+text).getBytes());
 
         SendResult sendResult = payProducer.getDefaultMQProducer().send(message);
 
@@ -39,8 +41,8 @@ public class PayController {
 
     @GetMapping("/test")
     public String configTest(){
-        System.out.println(JmsConfig.nameServerADDR);
-        System.out.println(JmsConfig.TOPIC);
+        System.out.println(JmsConfig.nameServerAddr);
+        System.out.println(JmsConfig.topic);
         return "configTest";
     }
 

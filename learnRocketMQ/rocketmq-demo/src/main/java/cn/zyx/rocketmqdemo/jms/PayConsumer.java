@@ -6,6 +6,7 @@ import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
 import org.apache.rocketmq.common.message.Message;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.UnsupportedEncodingException;
@@ -26,9 +27,9 @@ public class PayConsumer {
 
     public PayConsumer() throws MQClientException {
         consumer = new DefaultMQPushConsumer(consumerGroup);
-        consumer.setNamesrvAddr(JmsConfig.nameServerADDR);
+        consumer.setNamesrvAddr(JmsConfig.nameServerAddr);
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET);
-        consumer.subscribe(JmsConfig.TOPIC, "*");
+        consumer.subscribe(JmsConfig.topic, "*");
         consumer.registerMessageListener((MessageListenerConcurrently) (msgs, context) -> {
                     try {
                         Message msg = msgs.get(0);

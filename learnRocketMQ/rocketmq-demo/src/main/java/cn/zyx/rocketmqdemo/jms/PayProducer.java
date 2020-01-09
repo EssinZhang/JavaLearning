@@ -2,6 +2,7 @@ package cn.zyx.rocketmqdemo.jms;
 
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -23,7 +24,7 @@ public class PayProducer {
         //指定NameServer地址，多个地址以；隔开
         //如 producer.setNamesrvAddr(nameServerAddr)
 
-        defaultMQProducer.setNamesrvAddr(JmsConfig.nameServerADDR);
+        defaultMQProducer.setNamesrvAddr(JmsConfig.nameServerAddr);
 
         start();
 
