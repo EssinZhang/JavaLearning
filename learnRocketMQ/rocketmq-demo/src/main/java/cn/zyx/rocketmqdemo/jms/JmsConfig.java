@@ -1,6 +1,5 @@
 package cn.zyx.rocketmqdemo.jms;
 
-import cn.zyx.rocketmqdemo.config.TestConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.SmartLifecycle;
@@ -21,21 +20,20 @@ import javax.annotation.PostConstruct;
 @PropertySource("classpath:application.properties")
 public class JmsConfig {
 
-    @Autowired
-    private TestConfiguration config;
 
-    //public static String nameServerADDR = "39.97.232.41:9876";
+    @Value("${NAME.SERVER.ADDR}")
+    private String caddr;
+    @Value("${TOPIC}")
+    private String cTopic;
 
-    public static String nameServerAddr ;
+    public static String NAME_SERVER_ADDR ;
 
-    //public static String TOPIC = "zyx_pay_test";
-
-    public static String topic;
+    public static String TOPIC;
 
     @PostConstruct
     public void readConfig(){
-        nameServerAddr = config.getNameServAddr();
-        topic = config.getTopic();
+        NAME_SERVER_ADDR = caddr;
+        TOPIC = cTopic;
     }
 
 }

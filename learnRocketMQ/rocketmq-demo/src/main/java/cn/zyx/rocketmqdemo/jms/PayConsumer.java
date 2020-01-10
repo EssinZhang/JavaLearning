@@ -27,9 +27,9 @@ public class PayConsumer {
 
     public PayConsumer() throws MQClientException {
         consumer = new DefaultMQPushConsumer(consumerGroup);
-        consumer.setNamesrvAddr(JmsConfig.nameServerAddr);
+        consumer.setNamesrvAddr(JmsConfig.NAME_SERVER_ADDR);
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET);
-        consumer.subscribe(JmsConfig.topic, "*");
+        consumer.subscribe(JmsConfig.TOPIC, "*");
         consumer.registerMessageListener((MessageListenerConcurrently) (msgs, context) -> {
                     try {
                         Message msg = msgs.get(0);
