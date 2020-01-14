@@ -26,14 +26,14 @@ public class JmsConfig {
     @Value("${TOPIC}")
     private String cTopic;
 
-    public static String NAME_SERVER_ADDR ;
+    public static String NAME_SERVER_ADDR = "20.18.0.134:9876;39.97.232.41:9876";
 
-    public static String TOPIC;
+    public static String TOPIC = "zyx_pay_test";
 
-    @PostConstruct
+    /*@PostConstruct
     public void readConfig(){
         NAME_SERVER_ADDR = caddr;
         TOPIC = cTopic;
-    }
+    }*/
 
 }

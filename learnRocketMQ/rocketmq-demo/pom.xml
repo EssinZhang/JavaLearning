@@ -37,6 +37,12 @@
             <version>4.4.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.tinygroup.annotation.0.0.12.tinygroup</groupId>
+            <artifactId>springutil</artifactId>
+            <version>0.0.12</version>
+        </dependency>
+
     </dependencies>
 
     <build>

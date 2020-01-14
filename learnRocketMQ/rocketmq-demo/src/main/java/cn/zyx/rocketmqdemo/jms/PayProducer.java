@@ -18,13 +18,15 @@ public class PayProducer {
 
     private DefaultMQProducer defaultMQProducer;
 
-    public PayProducer(){
+    public PayProducer() throws MQClientException {
         defaultMQProducer = new DefaultMQProducer(producerGroup);
 
         //指定NameServer地址，多个地址以；隔开
         //如 producer.setNamesrvAddr(nameServerAddr)
 
         defaultMQProducer.setNamesrvAddr(JmsConfig.NAME_SERVER_ADDR);
+
+        defaultMQProducer.start();
 
     }
 

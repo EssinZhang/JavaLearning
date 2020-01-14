@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.tinygroup.springutil.SpringUtil;
 
 /**
  * @Description
@@ -21,12 +22,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PayController {
 
+    @Autowired
+    private PayProducer payProducer;
+
     @RequestMapping("/api/v1/mqtest")
     public Object callback(String text) throws InterruptedException, RemotingException, MQClientException, MQBrokerException {
-
-        PayProducer payProducer = new PayProducer();
-
-        payProducer.start();
 
         Message message = new Message(JmsConfig.TOPIC,"tags",("hello RocketMQ = "+text).getBytes());
 
