@@ -26,7 +26,7 @@ public class JmsConfig {
     @Value("${TOPIC}")
     private String cTopic;
 
-    public static String NAME_SERVER_ADDR = "20.18.0.134:9876;39.97.232.41:9876";
+    public static String NAME_SERVER_ADDR = "20.18.2.214:9876;39.97.232.41:9876";
 
     public static String TOPIC = "zyx_pay_test";
 
