@@ -4,9 +4,11 @@ import cn.zyx.rocketmqdemo.jms.JmsConfig;
 import cn.zyx.rocketmqdemo.jms.PayProducer;
 import org.apache.rocketmq.client.exception.MQBrokerException;
 import org.apache.rocketmq.client.exception.MQClientException;
+import org.apache.rocketmq.client.producer.MessageQueueSelector;
 import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
+import org.apache.rocketmq.common.message.MessageQueue;
 import org.apache.rocketmq.remoting.exception.RemotingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * @Description
@@ -49,6 +52,15 @@ public class PayController {
 
     }
 
+    /**
+     * RocketMQ延时测试controller
+     * @param text
+     * @param delayLevel
+     * @return
+     * @throws RemotingException
+     * @throws MQClientException
+     * @throws InterruptedException
+     */
     @RequestMapping("/api/v1/delayTest")
     public Object delayTest(String text ,int delayLevel) throws RemotingException, MQClientException, InterruptedException {
         Message message = new Message(JmsConfig.TOPIC,"tags",("hello RocketMQ = "+text).getBytes());
@@ -80,10 +92,65 @@ public class PayController {
         return returnString;
     }
 
+    /**
+     * MessageQueueSelector 测试接口(同步发送)
+     * @param text
+     * @return
+     */
+    @RequestMapping("/api/v1/selectorTest")
+    public Object selectorTest(String text) throws InterruptedException, RemotingException, MQClientException, MQBrokerException {
+        Message message = new Message(JmsConfig.TOPIC,"tags",("hello RocketMQ MessageQueueSelector = "+text).getBytes());
+
+        SendResult sendResult = payProducer.getDefaultMQProducer().send(message, new MessageQueueSelector() {
+            @Override
+            public MessageQueue select(List<MessageQueue> mqs, Message message, Object o) {
+                int queueNum = Integer.parseInt(o.toString());
+                return mqs.get(queueNum);
+            }
+        },3);
+        System.out.printf("发送结果: %s /t msg: +%s", sendResult.getSendStatus(),sendResult);
+
+        return sendResult;
+    }
+
+    /**
+     * MessageQueueSelector 测试接口(异步发送)
+     * @param text
+     * @return
+     */
+    @RequestMapping("/api/v1/asyncSelectorTest")
+    public Object asyncSelectorTest(String text) throws InterruptedException, RemotingException, MQClientException, MQBrokerException {
+        Message message = new Message(JmsConfig.TOPIC,"tags",("hello RocketMQ asyncMessageQueueSelector = "+text).getBytes());
+
+        payProducer.getDefaultMQProducer().send(message, new MessageQueueSelector() {
+            @Override
+            public MessageQueue select(List<MessageQueue> mqs, Message message, Object o) {
+                int queueNum = Integer.parseInt(o.toString());
+                return mqs.get(queueNum);
+            }
+        }, 3, new SendCallback() {
+            @Override
+            public void onSuccess(SendResult sendResult) {
+                System.out.printf("发送结果: %s /t msg: +%s", sendResult.getSendStatus(),sendResult);
+            }
+
+            @Override
+            public void onException(Throwable e) {
+                e.printStackTrace();
+            }
+        });
+
+
+        return "asyncSelectorTest";
+    }
+
     @GetMapping("/test")
     public String configTest(){
-        System.out.println(JmsConfig.NAME_SERVER_ADDR);
-        System.out.println(JmsConfig.TOPIC);
+        HashMap<String, String> map = new HashMap<>();
+        map.put("ss1","ss1ok");
+        map.put("ss2","ss2ok");
+        System.out.println(map.get("ss1"));
+        System.out.println(map.get("ss3"));
         return "configTest";
     }
 
