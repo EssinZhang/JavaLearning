@@ -1,10 +1,10 @@
 package cn.zyx.test;
 
-import cn.zyx.po.User;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -21,23 +21,27 @@ public class MyBatisV1 {
 
     @Test
     public void test(){
+        loadProperties("db.properties");
+        //从配置文件中读取sql
         ArrayList<Object> list = new ArrayList<>();
         list.add("1");
-        list.add("kobe");
-        ArrayList<User> userList = new ArrayList<>();
-        userList = testJDBC("db.findSql1",list);
-        for (int i = 0; i < userList.size(); i++) {
-            System.out.println(userList.get(i).toString());
-        }
+        list.add("2");
+        ArrayList<Object> resultList = new ArrayList<>();
+        //传入sql和查询信息的list
+        resultList = testJDBC("db.findByIdAndName",list);
+        System.out.println(resultList);
     }
 
     /**
      * sql执行方法
      */
-    public ArrayList<User> testJDBC(String sqlID, ArrayList list){
+    public ArrayList<Object> testJDBC(String sqlID, ArrayList list){
         Connection con = null;		//连接
         PreparedStatement pstmt = null;	//使用预编译语句
         ResultSet rs = null;	//获取的结果集
+
+        //返回的集合
+        ArrayList<Object> results = new ArrayList<>();
         try {
             loadProperties("db.properties");
             //指定驱动
@@ -55,20 +59,33 @@ public class MyBatisV1 {
             //执行sql获取结果集
             rs = pstmt.executeQuery();
 
-            ArrayList<User> userList = new ArrayList<>();
-            int index = 0;
+            // 获取要映射的结果类型
+            String resultclassname = properties.getProperty(sqlID + ".resultClassName");
+            // 加载指定类并初始化
+            Class<?> resultTypeClass = Class.forName(resultclassname);
 
+            Object result = null;
             while (rs.next()){
-                User user = new User();
-                user.setId(rs.getInt("id"));
-                user.setName(rs.getString("name"));
-                user.setPhone(rs.getString("phone"));
-                user.setBirthday(rs.getDate("birthday"));
-                user.setAddress(rs.getString("address"));
-                userList.add(user);
-                index++;
+                //根据指定类创建对应的对象
+                result = resultTypeClass.newInstance();
+
+                ResultSetMetaData metaData = rs.getMetaData();
+                //得到结果列数
+                int columnCount = metaData.getColumnCount();
+
+                for (int i = 1; i <= columnCount; i++) {
+                    //拿到对应列数的列名
+                    String columnName = metaData.getColumnName(i);
+                    Field field = resultTypeClass.getDeclaredField(columnName);
+                    //设置字段的值可以访问
+                    field.setAccessible(true);
+                    //根据列名设置对应的值
+                    field.set(result, rs.getObject(columnName));
+
+                }
+                results.add(result);
             }
-            return userList;
+            return results;
 
         } catch (Exception e) {
             e.printStackTrace();
