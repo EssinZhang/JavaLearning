@@ -17,7 +17,6 @@ import java.util.Properties;
  */
 public class MyBatisV1 {
     private Properties properties = new Properties();
-    private String driver = this.properties.getProperty("db.driver");
 
     @Test
     public void test(){
