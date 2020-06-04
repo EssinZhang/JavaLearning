@@ -2,10 +2,20 @@ package cn.zyx.test;
 
 import cn.zyx.framework.config.Configuration;
 import cn.zyx.framework.config.MappedStatement;
+import cn.zyx.framework.sqlNode.SqlNode;
+import cn.zyx.framework.sqlNode.support.IfSqlNode;
+import cn.zyx.framework.sqlNode.support.MixedSqlNode;
+import cn.zyx.framework.sqlNode.support.StaticTextSqlNode;
+import cn.zyx.framework.sqlNode.support.TextSqlNode;
+import cn.zyx.framework.sqlSource.SqlSource;
+import cn.zyx.framework.sqlSource.impl.DynamicSqlSource;
+import cn.zyx.framework.sqlSource.impl.RawSqlSource;
 import cn.zyx.po.User;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.dom4j.Document;
 import org.dom4j.Element;
+import org.dom4j.Node;
+import org.dom4j.Text;
 import org.dom4j.io.SAXReader;
 import org.junit.Test;
 
@@ -27,6 +37,10 @@ import java.util.Properties;
 public class MyBatisV2 {
 
     private Configuration configuration = new Configuration();
+
+    private String namespace;
+
+    private boolean isDynamic;
 
     @Test
     public void test(){
@@ -77,6 +91,115 @@ public class MyBatisV2 {
     }
 
     private void parseMapper(Element rootElement) {
+        namespace = rootElement.attributeValue("namespace");
+
+
+        //获取标签
+        List<Element> selectList = rootElement.elements("select");
+        for (Element selectElement : selectList){
+            parseStatementElement(selectElement);
+        }
+    }
+
+    /**
+     * 解析 crud 的标签 也就是statement标签
+     * @param selectElement
+     */
+    private void parseStatementElement(Element selectElement) {
+        //这里就获取到了select标签的id属性值   因为前面获取的标签就是select标签 所以这个是select标签的id属性值
+        String statementID = selectElement.attributeValue("id");
+        if (statementID == null || statementID.equals("")){
+            return;
+        }
+
+        //一个crud标签对应一个mappedStatement对象
+        //一个mappedStatement对象由一个statementId来标识，来保证唯一
+        //statementId = namespace + “.” + crud标签的id属性
+        statementID = namespace + "." + statementID;
+
+        //结果类型的获取
+        String resultType = selectElement.attributeValue("resultType");
+        Class<?> resultTypeClass = resolveType(resultType);
+
+        String statementType = selectElement.attributeValue("statementType");
+        statementType =  (statementType == null) || (statementType.equals("")) ? "prepared" : statementType ;
+
+        //sqlSource 的封装
+        SqlSource sqlSource = createSqlSource(selectElement);
+    }
+
+    /**
+     * 创建sqlsource
+     * @param selectElement
+     * @return
+     */
+    private SqlSource createSqlSource(Element selectElement) {
+        SqlSource sqlSource = parseScriptNode(selectElement);
+        return sqlSource;
+    }
+
+    /**
+     * 解析sqlsource的执行过程
+     * @param selectElement
+     * @return
+     */
+    private SqlSource parseScriptNode(Element selectElement) {
+        //解析所有的sqlNode
+        SqlNode mixedSqlNode = parseDynamicTags(selectElement);
+        //将所有sqlnode封装到sqlsource中
+        SqlSource sqlSource = null;
+        //如果sql信息中包含动态标签或者${},那么DynamicSqlSource
+        if (isDynamic){
+            sqlSource = new DynamicSqlSource(mixedSqlNode);
+        }else {
+            sqlSource = new RawSqlSource(mixedSqlNode);
+        }
+    }
+
+    /**
+     * 解析sqlNode调用
+     * @param selectElement
+     * @return
+     */
+    private MixedSqlNode parseDynamicTags(Element selectElement) {
+        List<SqlNode> sqlNodeList = new ArrayList<>();
+
+        int nodeCount = selectElement.nodeCount();
+        for (int i = 0; i < nodeCount; i++) {
+            Node node = selectElement.node(i);
+            if (node instanceof Text){
+                String text = node.getText().trim();
+                //判断文本是否为空
+                if (text == null || text.equals("")){
+                    continue;
+                }
+
+                TextSqlNode textSqlNode = new TextSqlNode(text);
+                if (textSqlNode.isDynimaic()){
+                    isDynamic = true;
+                    sqlNodeList.add(textSqlNode);
+                }else {
+                    sqlNodeList.add(new StaticTextSqlNode(text));
+                }
+
+            }else if (node instanceof Element){
+                isDynamic = true;
+                Element element = (Element) node;
+                String elementName = element.getName();
+                //判断element标签是 if 还是 where
+                if ("if".equals(elementName)){
+                    String test = element.attributeValue("test");
+                    MixedSqlNode mixedSqlNode = parseDynamicTags(element);
+
+                    IfSqlNode ifSqlNode = new IfSqlNode(test,mixedSqlNode);
+                    sqlNodeList.add(ifSqlNode);
+                }else if("where".equals(elementName)){
+                    //暂时不写
+                }
+            }
+        }
+
+        return new MixedSqlNode(sqlNodeList);
     }
 
     /**
@@ -263,6 +386,22 @@ public class MyBatisV2 {
      * @return
      */
     private String getSql() {
+        return null;
+    }
+
+    /**
+     * 拿到class
+     * @param parameterType
+     * @return
+     */
+    private Class<?> resolveType(String parameterType) {
+        try {
+            Class<?> clazz = Class.forName(parameterType);
+            return clazz;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**

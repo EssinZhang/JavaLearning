@@ -8,4 +8,11 @@ package cn.zyx.framework.sqlSource;
  * version: 1.0 <br>
  */
 public interface SqlSource {
+
+    /**
+     * 解析封装好的SqlNode信息
+     * @param param
+     * @return
+     */
+    BoundSql getBoundSql(Object param);
 }
