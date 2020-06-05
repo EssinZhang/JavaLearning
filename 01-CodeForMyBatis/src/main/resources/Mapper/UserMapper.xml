@@ -4,10 +4,8 @@
             resultType="cn.zyx.po.User"
             statementType="prepared">
 
-        SELECT * FROM user WHERE id = #{id} AND name like '%${name}'
-        <!-- SELECT * FROM user WHERE id = #{id} AND username like '%${username}' -->
+        SELECT * FROM t_user WHERE id = #{id} AND name like '%${name}'
 
-        <!-- and sex = #{sex} AND username like '%${username}' -->
         <if test="name != null and name !='' ">
             AND username like '%${username}'
             <if test="name != null and name !=''">

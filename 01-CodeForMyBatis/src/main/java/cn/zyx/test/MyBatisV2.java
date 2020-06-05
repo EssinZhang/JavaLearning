@@ -7,6 +7,8 @@ import cn.zyx.framework.sqlNode.support.IfSqlNode;
 import cn.zyx.framework.sqlNode.support.MixedSqlNode;
 import cn.zyx.framework.sqlNode.support.StaticTextSqlNode;
 import cn.zyx.framework.sqlNode.support.TextSqlNode;
+import cn.zyx.framework.sqlSource.BoundSql;
+import cn.zyx.framework.sqlSource.ParameterMapping;
 import cn.zyx.framework.sqlSource.SqlSource;
 import cn.zyx.framework.sqlSource.impl.DynamicSqlSource;
 import cn.zyx.framework.sqlSource.impl.RawSqlSource;
@@ -288,44 +290,36 @@ public class MyBatisV2 {
             Connection connect = getConnection();
 
             //获取sql
-            String sql = getSql();
+            //拿到sqlsource
+            SqlSource sqlSource = mappedStatement.getSqlSource();
+            //获取boundSql 完成sqlsource和sqlNode解析
+            BoundSql boundSql = sqlSource.getBoundSql(param);
 
-            //创建statement对象
-            preparedStatement = connect.prepareStatement(sql);
+            //拿到sql语句
+            String sql = boundSql.getSql();
 
-            setParameters(preparedStatement,param,mappedStatement);
+            //判断 sqlNode crud标签的statement
+            String statementType = mappedStatement.getStatementType();
+            if ("prepared".equals(statementType)){
+                //创建statement对象
+                preparedStatement = connect.prepareStatement(sql);
 
-            //执行sql获取结果集
-            rs = preparedStatement.executeQuery();
+                setParameters(preparedStatement,param,boundSql);
 
-            handleResultSet(rs,results,mappedStatement);
+                //执行sql获取结果集
+                rs = preparedStatement.executeQuery();
 
-            // 获取要映射的结果类型
-            String resultclassname = properties.getProperty(sqlID + ".resultClassName");
-            // 加载指定类并初始化
-            Class<?> resultTypeClass = Class.forName(resultclassname);
-
-            Object result = null;
-            while (rs.next()){
-                //根据指定类创建对应的对象
-                result = resultTypeClass.newInstance();
-
-                ResultSetMetaData metaData = rs.getMetaData();
-                //得到结果列数
-                int columnCount = metaData.getColumnCount();
-
-                for (int i = 1; i <= columnCount; i++) {
-                    //拿到对应列数的列名
-                    String columnName = metaData.getColumnName(i);
-                    Field field = resultTypeClass.getDeclaredField(columnName);
-                    //设置字段的值可以访问
-                    field.setAccessible(true);
-                    //根据列名设置对应的值
-                    field.set(result, rs.getObject(columnName));
-
-                }
-                results.add(result);
+                handleResultSet(rs,results,mappedStatement);
+            }else if ("callable".equals(statementType)){
+                //callableStatement是存储过程的
+                
+            }else{
+                //Statement
             }
+
+
+
+
             return results;
 
         } catch (Exception e) {
@@ -361,20 +355,55 @@ public class MyBatisV2 {
      * @param mappedStatement
      * @param <T>
      */
-    private <T> void handleResultSet(ResultSet rs, List<T> results, MappedStatement mappedStatement) {
+    private <T> void handleResultSet(ResultSet rs, List<T> results, MappedStatement mappedStatement) throws Exception {
+        //遍历查询结果集
+        // 获取要映射的结果类型
+        Class<?> resultTypeClass = mappedStatement.getResultTypeClass();
 
+        Object result = null;
+        while (rs.next()){
+            //根据指定类创建对应的对象
+            result = resultTypeClass.newInstance();
+
+            ResultSetMetaData metaData = rs.getMetaData();
+            //得到结果列数
+            int columnCount = metaData.getColumnCount();
+
+            for (int i = 1; i <= columnCount; i++) {
+                //拿到对应列数的列名
+                String columnName = metaData.getColumnName(i);
+                Field field = resultTypeClass.getDeclaredField(columnName);
+                //设置字段的值可以访问
+                field.setAccessible(true);
+                //根据列名设置对应的值
+                field.set(result, rs.getObject(columnName));
+
+            }
+            results.add((T) result);
+        }
     }
 
     /**
      * 参数传入处理
      * @param preparedStatement
      * @param param
-     * @param mappedStatement
+     * @param boundSql
+     * @throws SQLException
      */
-    private void setParameters(PreparedStatement preparedStatement, Object param, MappedStatement mappedStatement) {
+    private void setParameters(PreparedStatement preparedStatement, Object param, BoundSql boundSql) throws SQLException {
         if(SimpleTypeRegistry.isSimpleType(param.getClass())){
             preparedStatement.setObject(1,param);
         }else if (param instanceof Map){
+            //传参为map
+            Map map = (Map) param;
+
+            //根据映射取值并传入
+            List<ParameterMapping> parameterMappings = boundSql.getParameterMappings();
+            for (int i = 0; i < parameterMappings.size(); i++) {
+                ParameterMapping parameterMapping = parameterMappings.get(i);
+                Object value = map.get(parameterMapping.getName());
+                preparedStatement.setObject(i+1,value);
+            }
 
         }else {
 
