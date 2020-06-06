@@ -22,5 +22,8 @@ public class MixedSqlNode implements SqlNode {
     @Override
     public void apply(DynamicContext context) {
 
+        for (SqlNode sqlNode : sqlNodes){
+            sqlNode.apply(context);
+        }
     }
 }

@@ -1,8 +1,11 @@
 package cn.zyx.framework.sqlSource.impl;
 
+import cn.zyx.framework.sqlNode.DynamicContext;
 import cn.zyx.framework.sqlNode.SqlNode;
 import cn.zyx.framework.sqlSource.BoundSql;
 import cn.zyx.framework.sqlSource.SqlSource;
+import cn.zyx.framework.utils.GenericTokenParser;
+import cn.zyx.framework.utils.ParameterMappingTokenHandler;
 
 /**
  * @Description 封装解析出带的sqlNode信息（包含非动态标签或者#{}）
@@ -13,12 +16,29 @@ import cn.zyx.framework.sqlSource.SqlSource;
  */
 public class RawSqlSource implements SqlSource {
 
-    public RawSqlSource(SqlNode rootSqlNode) {
+    private SqlSource staticSqlSource;
 
+    public RawSqlSource(SqlNode rootSqlNode) {
+        //解析#{}
+        //解析所有的sqlNode节点信息，将sql拼接成一条完整的（这里没解析#{}）
+        DynamicContext context = new DynamicContext(null);
+        rootSqlNode.apply(context);
+        //此时拼接成的sql语句中，可能还包含#{}，所以还要对应#{}解析
+        String sqlString = context.getSql();
+        ParameterMappingTokenHandler parameterMappingTokenHandler = new ParameterMappingTokenHandler();
+        //#{}中的内容被GenericTokenParser解析出来之后，需要将结果交给parameterMappingTokenHandler去处理
+        GenericTokenParser genericTokenParser = new GenericTokenParser("#{","}",parameterMappingTokenHandler);
+
+        //得到最终的JDBC可以直接执行的SQL语句
+        String sql = genericTokenParser.parse(sqlString);
+
+        //将SQL语句和解析#{}产生的参数列表信息封装成BoundSql
+        staticSqlSource = new StaticSqlSource(sql,parameterMappingTokenHandler.getParameterMappings());
     }
 
     @Override
     public BoundSql getBoundSql(Object param) {
-        return null;
+
+        return staticSqlSource.getBoundSql(param);
     }
 }
