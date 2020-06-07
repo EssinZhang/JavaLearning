@@ -2,6 +2,7 @@ package cn.zyx.framework.sqlNode.support;
 
 import cn.zyx.framework.sqlNode.DynamicContext;
 import cn.zyx.framework.sqlNode.SqlNode;
+import cn.zyx.framework.utils.OgnlUtils;
 
 /**
  * @Description 存储带有if标签的sql文本信息
@@ -24,6 +25,10 @@ public class IfSqlNode implements SqlNode {
 
     @Override
     public void apply(DynamicContext context) {
+        boolean ifBoolean = OgnlUtils.evaluateBoolean(test, context.getBindings().get("_parameter"));
+        if (ifBoolean) {
+            mixedSqlNode.apply(context);
+        }
 
     }
 }

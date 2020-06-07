@@ -14,9 +14,7 @@ public class TextSqlNode implements SqlNode {
 
     private String sqlText;
 
-    private boolean isDynimaic;
-
-    public boolean isDynimaic(){
+    public boolean isDynamic(){
         //是： 则说明检测到了${}
         if (sqlText.indexOf("${") > -1){
             return true;
@@ -31,12 +29,14 @@ public class TextSqlNode implements SqlNode {
 
     @Override
     public void apply(DynamicContext context) {
-        ParameterMappingTokenHandler parameterMappingTokenHandler = new ParameterMappingTokenHandler();
+        BindingTokenHandler tokenHandler = new BindingTokenHandler(context);
         //#{}中的内容被GenericTokenParser解析出来之后，需要将结果交给parameterMappingTokenHandler去处理
-        GenericTokenParser genericTokenParser = new GenericTokenParser("${","}",parameterMappingTokenHandler);
+        GenericTokenParser genericTokenParser = new GenericTokenParser("${","}",tokenHandler);
 
         //得到最终的JDBC可以直接执行的SQL语句
         String sql = genericTokenParser.parse(sqlText);
+        //写的时候这个地方没有做append SQL拼接，导致最终的sql是 AND 1=1 只取了最后的if标签中的内容
+        context.appendSql(sql);
     }
 
     /**
@@ -46,6 +46,9 @@ public class TextSqlNode implements SqlNode {
 
         private DynamicContext context;
 
+        public BindingTokenHandler(DynamicContext context) {
+            this.context = context;
+        }
         //${}中的参数分两种情况返回  如果是简单类型直接返回  如果是map类型则需要特殊处理
         @Override
         public String handleToken(String content) {
@@ -55,6 +58,7 @@ public class TextSqlNode implements SqlNode {
             if (parameter == null){
                 return "";
             }else if (SimpleTypeRegistry.isSimpleType(parameter.getClass())){
+                //如果${}中只传递一个简单类型的参数，其实不需要关心${}中写的是什么
                 //如果是简单类型
                 return parameter.toString();
             }

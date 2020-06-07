@@ -25,10 +25,7 @@ import javax.sql.DataSource;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 /**
  * @Description
@@ -47,8 +44,11 @@ public class MyBatisV2 {
     @Test
     public void test(){
         loadXMl("mybatis-conf.xml");
-
-        List<User> users = selectList("getUserById","kobe");
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("name","kobe");
+        params.put("id",1);
+        List<User> users = selectList("test.findUserById",params);
+        System.out.println(users);
     }
 
     /**
@@ -119,6 +119,10 @@ public class MyBatisV2 {
         //statementId = namespace + “.” + crud标签的id属性
         statementID = namespace + "." + statementID;
 
+        // 注意：parameterType参数可以不设置也可以不解析
+        String parameterType = selectElement.attributeValue("parameterType");
+        Class<?> parameterClass = resolveType(parameterType);
+
         //结果类型的获取
         String resultType = selectElement.attributeValue("resultType");
         Class<?> resultTypeClass = resolveType(resultType);
@@ -128,6 +132,10 @@ public class MyBatisV2 {
 
         //sqlSource 的封装
         SqlSource sqlSource = createSqlSource(selectElement);
+
+        // TODO 建议使用构建者模式去优化
+        MappedStatement mappedStatement = new MappedStatement(statementID, parameterClass, resultTypeClass, statementType, sqlSource);
+        configuration.addMappedStatement(statementID, mappedStatement);
     }
 
     /**
@@ -147,7 +155,7 @@ public class MyBatisV2 {
      */
     private SqlSource parseScriptNode(Element selectElement) {
         //解析所有的sqlNode
-        SqlNode mixedSqlNode = parseDynamicTags(selectElement);
+        MixedSqlNode mixedSqlNode = parseDynamicTags(selectElement);
         //将所有sqlnode封装到sqlsource中
         SqlSource sqlSource = null;
         //如果sql信息中包含动态标签或者${},那么DynamicSqlSource
@@ -156,6 +164,7 @@ public class MyBatisV2 {
         }else {
             sqlSource = new RawSqlSource(mixedSqlNode);
         }
+        return sqlSource;
     }
 
     /**
@@ -177,7 +186,7 @@ public class MyBatisV2 {
                 }
 
                 TextSqlNode textSqlNode = new TextSqlNode(text);
-                if (textSqlNode.isDynimaic()){
+                if (textSqlNode.isDynamic()){
                     isDynamic = true;
                     sqlNodeList.add(textSqlNode);
                 }else {
@@ -270,6 +279,7 @@ public class MyBatisV2 {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     private InputStream getResourceAsStream(String s) {
@@ -332,9 +342,9 @@ public class MyBatisV2 {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-            } if (pstmt != null) {
+            } if (preparedStatement != null) {
                 try {
-                    pstmt.close();
+                    preparedStatement.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -376,7 +386,7 @@ public class MyBatisV2 {
                 //设置字段的值可以访问
                 field.setAccessible(true);
                 //根据列名设置对应的值
-                field.set(result, rs.getObject(columnName));
+                field.set(result, rs.getObject(i));
 
             }
             results.add((T) result);
@@ -408,14 +418,6 @@ public class MyBatisV2 {
         }else {
 
         }
-    }
-
-    /**
-     * 用于获取数据库连接
-     * @return
-     */
-    private String getSql() {
-        return null;
     }
 
     /**
