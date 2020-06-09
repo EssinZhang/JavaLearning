@@ -5,6 +5,12 @@ out/
 
 # log File
 *.log
+<<<<<<< HEAD
 learnSpringCloud/api-gateway/.mvn/wrapper/MavenWrapperDownloader.java
 learnSpringCloud/api-gateway/.mvn/wrapper/maven-wrapper.properties
 learnSpringCloud/api-gateway/.mvn/wrapper/maven-wrapper.jar
+=======
+
+# iml File
+*.iml
+>>>>>>> mybatis

@@ -1,0 +1,17 @@
+<mapper namespace="test">
+    <!-- select标签，封装了SQL语句信息、入参类型、结果映射类型 -->
+    <select id="findUserById"
+            parameterType="cn.zyx.po.User"
+            resultType="cn.zyx.po.User"
+            statementType="prepared">
+
+        SELECT * FROM t_user WHERE id = #{id} AND name like '%${name}'
+
+        <if test="name != null and name !='' ">
+            AND name like '%${name}'
+            <if test="name != null and name !=''">
+                AND 1=1
+            </if>
+        </if>
+    </select>
+</mapper>
