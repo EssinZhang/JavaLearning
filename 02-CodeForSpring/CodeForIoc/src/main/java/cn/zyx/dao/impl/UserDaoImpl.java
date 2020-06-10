@@ -27,7 +27,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     public void init() {
-        System.out.println("初始化方法被调用");
+        System.out.println("初始化方法UserDaoImpl.init被调用");
     }
 
     @Override
