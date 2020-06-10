@@ -1,11 +1,13 @@
 package cn.zyx.test;
 
 import cn.zyx.dao.impl.UserDaoImpl;
+import cn.zyx.po.User;
 import cn.zyx.service.impl.UserServiceImpl;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -36,6 +38,7 @@ public class SpringV1 {
         param.put("name","wade");
 
         //用户查询
-        userService.queryUsers(param);
+        List<User> users = userService.queryUsers(param);
+        System.out.println(users);
     }
 }

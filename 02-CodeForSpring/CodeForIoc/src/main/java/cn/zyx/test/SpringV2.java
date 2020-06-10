@@ -1,15 +1,18 @@
 package cn.zyx.test;
 
-import cn.zyx.dao.impl.UserDaoImpl;
 import cn.zyx.ioc.BeanDefinition;
 import cn.zyx.ioc.PropertyValue;
 import cn.zyx.ioc.RuntimeBeanReference;
 import cn.zyx.ioc.TypedPropertyStringValue;
-import cn.zyx.service.impl.UserServiceImpl;
-import org.apache.commons.dbcp.BasicDataSource;
+import cn.zyx.po.User;
+import cn.zyx.service.UserService;
+import org.dom4j.Document;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -37,28 +40,196 @@ public class SpringV2 {
 
     @Before
     public void before(){
+        //完成XML解析，就是完成BeanDefinition的注册
+        //XML解析，将结果放入BeanDefinition中
+        String location = "bean01.xml";
+        //获取流对象
+        InputStream inputStream = getInputStream(location);
+        //创建文本对象
+        Document document = createDocument(inputStream);
 
+        //按照Spring定义的标签语义去解析Document
+        parseBeanDefinitions(document.getRootElement());
+
+    }
+
+    /**
+     * 解析bean
+     * @param rootElement
+     */
+    private void parseBeanDefinitions(Element rootElement) {
+        //获取 bean 和自定义标签
+        List<Element> elements = rootElement.elements();
+        for (Element element : elements) {
+            //获取标签名称
+            String name = element.getName();
+            if (name.equals("bean")){
+                //解析bean标签
+                parseDefaultElement(element);
+            }else {
+                //解析自定义标签
+                parseCustomElement(element);
+            }
+
+        }
+    }
+
+    /**
+     * 解析自定义标签暂时先不写
+     * @param element
+     */
+    private void parseCustomElement(Element element) {
+    }
+
+    /**
+     * 解析 bean 标签
+     * @param beanElement
+     */
+    private void parseDefaultElement(Element beanElement) {
+        try {
+            if (beanElement == null){
+                return;
+            }
+            //获取id属性值
+            String id = beanElement.attributeValue("id");
+
+            //获取name属性值
+            String name = beanElement.attributeValue("name");
+
+            //获取class属性值
+            String className = beanElement.attributeValue("class");
+            if (className == null || "".equals(className)){
+                return;
+            }
+
+            //获取init-method属性值
+            String initMethodValue = beanElement.attributeValue("init-method");
+
+            //获取scope属性值
+            String scope = beanElement.attributeValue("scope");
+            scope = scope != null && !scope.equals("") ? scope:"singleton";
+
+            //获取beanName
+            //判断 id，name属性有没有值，没有就赋一个className 对应的类型值
+            String beanName = id == null ? name:id;
+            Class<?> classType = Class.forName(className);
+            beanName = beanName == null ? classType.getSimpleName():beanName;
+
+            //创建BeanDefinition对象
+            //此次可以使用构建者模式进行优化
+            BeanDefinition beanDefinition = new BeanDefinition(className, beanName);
+            beanDefinition.setInitMethod(initMethodValue);
+            beanDefinition.setScope(scope);
+
+            //获取property自标签集合
+            List<Element> propertyElements = beanElement.elements();
+            for (Element propertyElement : propertyElements) {
+                parsePropertyElement(beanDefinition,propertyElement);
+            }
+
+            //注册BeanDefinition信息
+            this.beanDefinitions.put(beanName,beanDefinition);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     *
+     * @param beanDefinition
+     * @param propertyElement
+     */
+    private void parsePropertyElement(BeanDefinition beanDefinition, Element propertyElement) {
+        if (propertyElement == null){return;}
+
+        //获取name属性值
+        String name = propertyElement.attributeValue("name");
+        //获取value属性值
+        String value = propertyElement.attributeValue("value");
+        //获取ref属性值
+        String ref = propertyElement.attributeValue("ref");
+
+        // 如果value和ref都有值，则返回
+        if (value != null && !value.equals("") && ref != null && !ref.equals("")) {
+            return;
+        }
+
+        //PropertyValue就封装着一个property标签的信息
+        PropertyValue pv = null;
+
+        if (value != null && !value.equals("")) {
+            // 因为spring配置文件中的value是String类型，而对象中的属性值是各种各样的，所以需要存储类型
+            TypedPropertyStringValue typeStringValue = new TypedPropertyStringValue(value);
+
+            Class<?> targetType = getTypeByFieldName(beanDefinition.getClazzName(), name);
+            typeStringValue.setTargetType(targetType);
+
+            pv = new PropertyValue(name, typeStringValue);
+            beanDefinition.addPropertyValue(pv);
+        } else if (ref != null && !ref.equals("")) {
+
+            RuntimeBeanReference reference = new RuntimeBeanReference(ref);
+            pv = new PropertyValue(name, reference);
+            beanDefinition.addPropertyValue(pv);
+        } else {
+            return;
+        }
+
+    }
+
+
+    private Class<?> getTypeByFieldName(String clazzName, String name) {
+        try {
+            Class<?> clazz = Class.forName(clazzName);
+            Field field = clazz.getDeclaredField(name);
+            return field.getType();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 创建Document文本对象
+     * @param inputStream
+     * @return
+     */
+    private Document createDocument(InputStream inputStream) {
+        Document document = null;
+        try {
+            SAXReader saxReader = new SAXReader();
+            document = saxReader.read(inputStream);
+            return document;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //如果这个方法返回为null,则说明inputstream没读到东西或其他原因
+        return document;
+    }
+
+
+    /**
+     * 获取流对象
+     * @param location
+     * @return
+     */
+    private InputStream getInputStream(String location) {
+        return this.getClass().getClassLoader().getResourceAsStream(location);
     }
 
     @Test
     public void test(){
-        //使用UserService
-        UserServiceImpl userService = new UserServiceImpl();
-        UserDaoImpl userDao = new UserDaoImpl();
-        BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        basicDataSource.setUrl("jdbc:mysql://127.0.0.1:3306/learnmybatis?useSSL=false");
-        basicDataSource.setUsername("root");
-        basicDataSource.setPassword("123456");
-        userDao.setDataSource(basicDataSource);
-        userService.setUserDao(userDao);
+
+        UserService userService = (UserService)getBean("userService");
 
         //查询参数
         Map<String,Object> param = new HashMap<>();
         param.put("name","wade");
 
         //用户查询
-        userService.queryUsers(param);
+        List<User> users = userService.queryUsers(param);
+        System.out.println(users);
     }
 
     public Object getBean(String beanName){
@@ -71,7 +242,7 @@ public class SpringV2 {
         Object bean = this.singletonObjects.get(beanName);
         //1.1.如果找到，则直接返回该Bean
         if (bean != null){
-            return bean
+            return bean;
         }
         //1.2.如果没有再去创建对应的Bean实例(要判断创建Bean要以单例模式创建还是原型模式创建)
         //2.1.可以使用XML配置文件的方式来配置beanName和Bean实力对应的关系，同时可以配置Bean被创建时需要依赖注入的参数
@@ -102,12 +273,18 @@ public class SpringV2 {
      * @return
      */
     private Object doCreateBean(BeanDefinition beanDefinition) {
-        //1.bean的实例化
-        Object bean = createBeanInstance(beanDefinition);
-        //2.bean的依赖注入
-        populateBean(bean,beanDefinition);
-        //3.bean的初始化
-        initializeBean(bean,beanDefinition);
+        Object bean = null;
+        try {
+            //1.bean的实例化
+            bean = createBeanInstance(beanDefinition);
+            //2.bean的依赖注入
+            populateBean(bean,beanDefinition);
+            //3.bean的初始化
+            initializeBean(bean,beanDefinition);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         return bean;
     }
 
@@ -159,7 +336,7 @@ public class SpringV2 {
                 field = clazzType.getDeclaredField(name);
                 field.setAccessible(true);
                 field.set(bean,valueToUse);
-            } catch (NoSuchFieldException e) {
+            } catch (NoSuchFieldException | IllegalAccessException e) {
                 e.printStackTrace();
             }
 
@@ -175,9 +352,13 @@ public class SpringV2 {
             TypedPropertyStringValue propertyStringValue = (TypedPropertyStringValue) value;
             String stringValue = propertyStringValue.getValue();
             Class<?> targetType = propertyStringValue.getTargetType();
-            if (targetType == Integer.class)
+            if (targetType == Integer.class){
+                return Integer.parseInt(stringValue);
+            }else if (targetType == String.class){
+                return stringValue;
+            }
         }
-
+        return null;
     }
 
     /**

@@ -89,7 +89,7 @@ public class BeanDefinition {
         return propertyValues;
     }
 
-    public void addPropertyValues(PropertyValue propertyValue) {
+    public void addPropertyValue(PropertyValue propertyValue) {
         this.propertyValues.add(propertyValue);
     }
 
