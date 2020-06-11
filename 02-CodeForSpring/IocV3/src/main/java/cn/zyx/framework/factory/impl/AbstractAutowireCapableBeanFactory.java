@@ -1,10 +1,9 @@
 package cn.zyx.framework.factory.impl;
 
-import cn.zyx.ioc.BeanDefinition;
-import cn.zyx.ioc.PropertyValue;
-import cn.zyx.ioc.RuntimeBeanReference;
-import cn.zyx.ioc.TypedPropertyStringValue;
-import cn.zyx.resolver.ValueResolver;
+import cn.zyx.framework.ioc.BeanDefinition;
+import cn.zyx.framework.ioc.PropertyValue;
+import cn.zyx.framework.resolver.ValueResolver;
+import cn.zyx.framework.utils.ReflectUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -17,7 +16,7 @@ import java.util.List;
  * @author: ZhangYixin <br>
  * version: 1.0 <br>
  */
-public class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory{
+public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory{
 
     /**
      * 继承父类方法去做Bean创建的功能
@@ -49,16 +48,7 @@ public class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory{
      * @return
      */
     private Object createBeanInstance(BeanDefinition beanDefinition) {
-        Class<?> clazzType = beanDefinition.getClazzType();
-        Object bean = null;
-        try {
-            bean = clazzType.newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return bean;
+        return ReflectUtils.createInstance(beanDefinition.getClazzType());
 
     }
 
@@ -77,17 +67,10 @@ public class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory{
             ValueResolver valueResolver = new ValueResolver(this);
             Object valueToUse = valueResolver.resolveValue(value, beanDefinition);
 
-            //根据指定名称得到相应属性
-            Field field = null;
-            try {
-                field = clazzType.getDeclaredField(name);
-                field.setAccessible(true);
-                field.set(bean,valueToUse);
-            } catch (NoSuchFieldException | IllegalAccessException e) {
-                e.printStackTrace();
-            }
-
+            ReflectUtils.setProperty(bean,name,valueToUse,clazzType);
         }
+
+
     }
 
 
@@ -109,13 +92,7 @@ public class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory{
         if (initMethod == null || initMethod.equals("")){
             return;
         }
-        Method method = null;
-        try {
-            method = clazzType.getDeclaredMethod(initMethod);
-            method.invoke(bean,null);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        ReflectUtils.invokeMethod(bean,clazzType,initMethod);
 
 
     }

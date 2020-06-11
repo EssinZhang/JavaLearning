@@ -1,8 +1,13 @@
 package cn.zyx.test;
 
+import cn.zyx.framework.factory.BeanFactory;
+import cn.zyx.framework.factory.impl.DefaultListableBeanFactory;
+import cn.zyx.framework.reader.XmlBeanDefinitionReader;
+import cn.zyx.framework.registry.BeanDefinitionRegistry;
+import cn.zyx.framework.resource.Resource;
+import cn.zyx.framework.resource.impl.ClassPathResource;
 import cn.zyx.po.User;
 import cn.zyx.service.UserService;
-import org.dom4j.Document;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,25 +26,28 @@ import java.util.Map;
 public class SpringV3 {
 
 
+    private DefaultListableBeanFactory beanFactory;
+
     @Before
     public void before(){
         //完成XML解析，就是完成BeanDefinition的注册
         //XML解析，将结果放入BeanDefinition中
         String location = "bean01.xml";
         //获取流对象
-        InputStream inputStream = getInputStream(location);
-        //创建文本对象
-        Document document = createDocument(inputStream);
+        Resource resource  = new ClassPathResource(location);
+        InputStream inputStream = resource.getResource();
 
         //按照Spring定义的标签语义去解析Document
-        parseBeanDefinitions(document.getRootElement());
+        beanFactory = new DefaultListableBeanFactory();
+        XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
+        xmlBeanDefinitionReader.registerBeanDefinitions(inputStream);
 
     }
 
     @Test
     public void test(){
 
-        UserService userService = (UserService)getBean("userService");
+        UserService userService = (UserService) beanFactory.getBean("userService");
 
         //查询参数
         Map<String,Object> param = new HashMap<>();

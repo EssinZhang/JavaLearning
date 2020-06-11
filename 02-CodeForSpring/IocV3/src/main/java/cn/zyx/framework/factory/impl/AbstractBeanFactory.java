@@ -1,8 +1,8 @@
 package cn.zyx.framework.factory.impl;
 
 import cn.zyx.framework.factory.BeanFactory;
-import cn.zyx.ioc.BeanDefinition;
-import cn.zyx.registry.impl.DefaultSingletonBeanRegistry;
+import cn.zyx.framework.ioc.BeanDefinition;
+import cn.zyx.framework.registry.impl.DefaultSingletonBeanRegistry;
 
 /**
  * description: AbstractBeanFactory 对beanFactory的方法进行了实现，但是只是定义了getBean的步骤，而细节部分需要交给子类去实现 <br>
@@ -29,7 +29,7 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
         //1.2.如果没有再去创建对应的Bean实例(要判断创建Bean要以单例模式创建还是原型模式创建)
         //2.1.可以使用XML配置文件的方式来配置beanName和Bean实力对应的关系，同时可以配置Bean被创建时需要依赖注入的参数
         //2.2.一次性解析XML配置文件，形成对应的配置对象(BeanDefinition集合)
-        BeanDefinition beanDefinition = getBeanDefinitions(beanName);
+        BeanDefinition beanDefinition = getBeanDefinition(beanName);
         if (beanDefinition == null){
             return null;
         }
@@ -61,5 +61,5 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
      * @param beanName
      * @return
      */
-    protected abstract BeanDefinition getBeanDefinitions(String beanName);
+    protected abstract BeanDefinition getBeanDefinition(String beanName);
 }
