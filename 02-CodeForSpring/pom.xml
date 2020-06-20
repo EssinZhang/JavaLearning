@@ -10,6 +10,9 @@
   <modules>
     <module>CodeForIoc</module>
       <module>IocV3</module>
+      <module><![CDATA[cgLib&Jdk]]></module>
+    <module>jdkAndCglib</module>
+    <module>ssp</module>
   </modules>
   <packaging>pom</packaging>
 
