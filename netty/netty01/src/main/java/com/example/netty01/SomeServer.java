@@ -7,7 +7,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
- * description: SomeServer <br>
+ * description: 服务器启动类 <br>
  * date: 2020/8/28 09:38 <br>
  *
  * @author: ZhangYixin <br>
