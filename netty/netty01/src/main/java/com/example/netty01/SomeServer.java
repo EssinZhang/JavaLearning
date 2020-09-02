@@ -31,7 +31,7 @@ public class SomeServer {
              */
             serverBootstrap.group(parentGroup,childGroup)
                     .channel(NioServerSocketChannel.class)
-                    .childHandler(null);
+                    .childHandler(new SomeChannelInitializer());
 
             /**
              * 指定当前服务器所监听的端口号
