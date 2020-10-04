@@ -6,26 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f0dafd8-d4c8-417d-846b-07e995ff5971" name="Default Changelist" comment="依旧用模拟的方式写一个rest风格的增删改查，接下来就该进入mybatis了">
-      <change afterPath="$PROJECT_DIR$/../learnSpringBoot/04-SpringBootWithRedis/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../learnSpringBoot/04-SpringBootWithRedis/src/main/java/cn/zyx/RedisTestApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../learnSpringBoot/04-SpringBootWithRedis/src/main/java/cn/zyx/controller/RedisTestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../learnSpringBoot/04-SpringBootWithRedis/src/main/java/cn/zyx/domain/JsonData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../learnSpringBoot/04-SpringBootWithRedis/src/main/java/cn/zyx/domain/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../learnSpringBoot/04-SpringBootWithRedis/src/main/java/cn/zyx/test/RedisJsonTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../learnSpringBoot/04-SpringBootWithRedis/src/main/java/cn/zyx/utils/JsonUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../learnSpringBoot/04-SpringBootWithRedis/src/main/java/cn/zyx/utils/RedisClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../learnSpringBoot/04-SpringBootWithRedis/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../learnSpringBoot/04-SpringBootWithRedis/src/main/resources/banner.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../learnSpringBoot/05-SpringBootWithTimedTask/src/main/java/cn/zyx/controller/TimerTestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../learnSpringBoot/05-SpringBootWithTimedTask/src/main/java/cn/zyx/domain/JsonData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../learnSpringBoot/05-SpringBootWithTimedTask/src/main/java/cn/zyx/domain/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../learnSpringBoot/05-SpringBootWithTimedTask/src/main/java/cn/zyx/task/AsyncTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../learnSpringBoot/05-SpringBootWithTimedTask/src/main/java/cn/zyx/task/TestTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../learnSpringBoot/05-SpringBootWithTimedTask/src/main/resources/banner.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firstMVC.iml" beforeDir="false" />
-    </list>
+    <list default="true" id="3f0dafd8-d4c8-417d-846b-07e995ff5971" name="Default Changelist" comment="依旧用模拟的方式写一个rest风格的增删改查，接下来就该进入mybatis了" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,6 +313,7 @@
       <workItem from="1557840989923" duration="574000" />
       <workItem from="1564885389635" duration="131000" />
       <workItem from="1564885527918" duration="28000" />
+      <workItem from="1577715129850" duration="40000" />
     </task>
     <task id="LOCAL-00001" summary="git add *">
       <created>1554637051196</created>
