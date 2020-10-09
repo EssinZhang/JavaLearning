@@ -23,7 +23,7 @@ public class LocalDateDemo01 {
         // 日期计算
         LocalDate plusYears = localDate.plusYears(2);
         System.out.println("加2后年份："+plusYears.getYear());
-        System.out.println("isAfter:"+plusYears.isBefore(localDate));
+        System.out.println("isAfter:"+plusYears.isAfter(localDate));
     }
 
 }
