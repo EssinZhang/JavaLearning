@@ -16,8 +16,6 @@ public class StreamofForeachDemo01 {
         List<String> stringList = Arrays.asList("kobe", "wade", "o'neal", "tracy", "gogogo", "believe");
         stringList.forEach(obj-> {
             System.out.println(obj);
-            obj=obj+"1";
-            System.out.println(obj);
         });
     }
 
