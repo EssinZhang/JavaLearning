@@ -1,4 +1,4 @@
 git test
 git test 22
-git is quick and simple
+git is quick & simple
 
