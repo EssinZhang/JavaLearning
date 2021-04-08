@@ -14,3 +14,5 @@ learnSpringCloud/api-gateway/.mvn/wrapper/maven-wrapper.jar
 # iml File
 *.iml
 >>>>>>> mybatis
+demo/
+CodeForSpringMVC/pom.xml
